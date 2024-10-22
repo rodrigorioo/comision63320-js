@@ -1,159 +1,261 @@
-// ESTE ES UN COMENTARIO DE UNA SOLA LÍNEA
-
-/*
-ESTA ES LA PRIMER LÍNEA DE UN COMENTARIO
-ESTA ES LA SEGUNDA
-ESTA ES LA TERCERA
- */
-
-/**
- * VARIABLES
- */
-
-// let edad = 30;
-// let nombre;
+// const nombre = "Pepe";
+// const edad = 15;
 //
-// const anioDeNacimiento = 1930;
-// const apellido = "Perez";
-
-// NO ES LO MISMO 2020 EN NÚMERO
-// QUE "2020" EN STRING
-// const anio = 2020;
-// const anio = "2020";
-
-// let nombre = "Pepe";
+// const resultado = 10 + 15;
 //
-// nombre = "Carlos"; // Nombre tiene el valor "Carlos"
-// nombre = "Juan"; // Nombre tiene el valor "Juan"
-// nombre = 2; // Nombre tiene el valor 2
+// if (true) {
+//     console.log(resultado);
+//     console.log("h");
+//     console.log("a");
+//     console.log("b");
+//     console.log("c");
+//     console.log("d");
+// }
+//
+// console.log(edad);
+// console.log(nombre);
 
 /**
- * OPERACIONES CON VARIABLES
+ * IF
  */
 
-// const numero1 = 10;
-// const numero2 = 30;
+// const nombre = "Pepe";
 //
-// //                  10    +    30
-// const resultado = numero1 + numero2; // La variable "resultado" tenga el valor de 40
-//
-// const resultadoMultiplicacion = numero1 * numero2; // 300
-//
-// const resultadoDivision = numero2 / numero1; // 3
-//
-// const resultadoResta = numero2 - numero1; // 20
-//
-// const resultado2 = 600 * 700 / 20;
+// if (nombre == "Pepe") {
+//     console.log("Hola pepe");
+// }
 
-
-// const cadena1 = "Hola";
-// const cadena2 = "Como estás";
+// let edad = 15;
 //
-// //             "Hola"  + "Cómo estás"
-// const saludo = cadena1 + cadena2; // El valor de la variable "saludo" va a ser: "HolaCómo estás"
-//
-// const saludo2 = cadena1 + " " + cadena2; // "Hola Como estás"
-//
-// const espacio = " ";
-//
-// const saludo3 = cadena1 + espacio + cadena2;
-
-
-// const numero1 = 30;
-// const saludo = "Hola como estas";
-// const numero2 = 50;
-// const numero3 = 60;
-// const numero4 = 70;
-// const numero5 = 80;
-//
-// const resultado = numero1 + saludo + numero2 + numero3 + numero4 + numero5; // "30Hola como estas50607080"
-//
-// const resultado2 = numero1 + numero2 + numero3 + numero4 + numero5;
+// if (edad == 18) {
+//     console.log("Tiene 15");
+// }
 
 /**
- * CONSOLE.LOG
+ * IF - ELSE
  */
 
-// const numero1 = 30;
-// const saludo = "Hola como estas";
-// const numero2 = 50;
-// const numero3 = 60;
-// const numero4 = 70;
-// const numero5 = 80;
+// const nombre = "Pepe";
 //
-// const resultado = numero1 + saludo + numero2 + numero3 + numero4 + numero5; // "30Hola como estas50607080"
+// if (nombre == "Pepe") {
 //
-// console.log(resultado);
+//     console.log("Hola Pepe");
 //
-// const resultado2 = numero1 + numero2 + numero3 + numero4 + numero5;
+// } else {
 //
-// console.log(resultado2);
+//     console.log("Hola persona que no es Pepe");
+//
+// }
+
+// const nombre = prompt("Ingrese el nombre");
+//
+// if (nombre == "Juan") {
+//     console.log("Hola Juan");
+// } else {
+//     console.log("Hola quien quiera que seas");
+// }
 
 /**
- * PROMPT Y ALERT
+ * IF - ELSE IF
  */
 
-// const nombre = prompt("Ingrese un nombre");
-
-// console.log("Bienvenido " + nombre);
-
-// alert("Bienvenido " + nombre);
+// const nombre = "Marcos";
 //
-// console.log("Hola");
+// if (nombre == "Lautaro") {
+//     console.log("Hola Lautaro");
+// } else if (nombre == "Pepe") {
+//     console.log("Hola pepe");
+// } else if (nombre == "Juan") {
+//     console.log("Hola Juan");
+// } else {
+//     console.log("Hola persona que no es Lautaro, ni Juan ni Pepe");
+// }
 
 /**
- * EJEMPLO 1)
- * Pedir 3 números al usuario y calcule su suma
+ * EJEMPLOS IF
  */
 
-// const numero1 = parseInt(prompt("Ingrese número 1"));
-// const numero2 = parseInt(prompt("Ingrese número 2"));
-// const numero3 = parseInt(prompt("Ingrese número 3"));
+// const nombre = prompt("Ingrese su nombre");
+// const edad = parseInt(prompt("Ingrese la edad"));
 //
-// const resultado = numero1 + numero2 + numero3;
-//
-// console.log("El resultado es: " + resultado);
+// if (edad < 18) {
+//     alert("Acceso prohibido");
+// } else {
+//     alert("Bienvenido " + nombre);
+// }
 
 /**
- * EJEMPLO 2)
- * Pedir 4 números y calcular el promedio
+ * EJEMPLO COMPARANDO EL NaN
  */
 
-// const numero1 = parseInt(prompt("Ingrese número 1"));
-// const numero2 = parseInt(prompt("Ingrese número 2"));
-// const numero3 = parseInt(prompt("Ingrese número 3"));
-// const numero4 = parseInt(prompt("Ingrese número 4"));
+// const nombre = prompt("Ingrese su nombre");
+// const edad = parseInt(prompt("Ingrese la edad"));
 //
-// const sumaDeNumeros = numero1 + numero2 + numero3 + numero4;
-// const promedio = sumaDeNumeros / 4;
-//
-// console.log("El promedio es: " + promedio);
-
-// SI TRATO DE UTILIZAR PARSE INT CON UN VALOR QUE NO ES NUMÉRICO, ME VA A DEVOLVER NaN QUE ES UN VALOR QUE REPRESENTA ALGO QUE NO PUDO SER TRANSFORMADO A UN VALOR NUMÉRICO
-// const numero = parseInt(prompt("Ingrese un número"));
-//
-// console.log(numero);
+// if(isNaN(edad)) {
+//     alert("Ingrese un número válido");
+// } else {
+//     if (edad < 18) {
+//         alert("Acceso prohibido");
+//     } else {
+//         alert("Bienvenido " + nombre);
+//     }
+// }
 
 /**
- * EJEMPLO 3)
- * Sumar precios de un supermercado
+ * EJEMPLO 2
+ * IF
  */
 
-// const precio1 = parseFloat(prompt("Ingrese precio 1 del supermercado"));
-// const precio2 = parseFloat(prompt("Ingrese precio 2 del supermercado"));
+// const numero1 = parseFloat(prompt("Ingrese numero 1"));
+// const numero2 = parseFloat(prompt("ingrese número 2"));
 //
-// const suma = precio1 + precio2;
+// const resultado = numero1 + numero2;
 //
-// console.log("La suma es: " + suma);
+// // if (resultado > 10) {
+// //     alert("El resultado es mayor que 10");
+// // } else {
+// //     alert("El resultado no es mayor a 10");
+// // }
+//
+// if (resultado < 10) {
+//     alert("El resultado es menor que 10");
+// } else if(resultado < 20) {
+//     alert("El resultado es menor que 20");
+// } else if(resultado < 30) {
+//     alert("El resultado es menor a 30");
+// } else {
+//     alert("El resultado es mayor que 30");
+// }
 
 /**
- * EJEMPLO 4)
- * Pedir un nombre y pedir un saludo
+ * VARIABLES BOOLEANAS
  */
 
-// const nombre = prompt("Ingrese nombre");
-// const saludo = prompt("Ingrese saludo");
+// const booleana = false;
 //
-// const saludoCompleto = saludo + " " + nombre;
+// if (booleana) {
+//     console.log("La variable es true");
+// }
+
+// const numero = 15;
+// // const esNumero10 = (numero == 10);
+// const esMayorA20 = (numero > 20);
 //
-// alert(saludoCompleto);
+// if (esMayorA20) {
+//
+// }
+//
+// // ..
+// // ..
+//
+// if (esMayorA20) {
+//
+// }
+
+/**
+ * ES DISTINTO
+ */
+
+// const numero1 = 15;
+// const numero2 = 15;
+
+// if (numero1 == numero2) {
+//     console.log("Son iguales");
+// }
+
+// if (numero1 != numero2) {
+//     console.log("Es distinto");
+// }
+
+/**
+ * ESTRICTAMENTE IGUAL Y ESTRICTAMENTE DISTINTO
+ */
+
+// const numero1 = 15;
+// const numero2 = 20;
+//
+// if (numero1 == numero2) {
+//     console.log("Son iguales");
+// }
+//
+// if (numero1 === numero2) {
+//     console.log("Son estrictamente iguales");
+// } else {
+//     console.log("No son estrictamente iguales");
+// }
+
+// const numero1 = 15;
+// const numero2 = "15";
+//
+// if (numero1 != numero2) {
+//     console.log("Son distintos");
+// } else {
+//     console.log("No son distintos");
+// }
+//
+// if (numero1 !== numero2) {
+//     console.log("Son estrictamente distintos");
+// }
+
+/**
+ * AND Y OR
+ */
+
+// AND
+
+// const nombre = "Pepe";
+// const edad = 25;
+//
+// if ( (nombre == "Pepe") && (edad == 20) ) {
+//     console.log("El nombre es Pepe y la edad es 20");
+// }
+
+// OR
+
+// const nombre = "Marcos";
+//
+// if ( (nombre == "Juan") || (nombre == "Pedro") ) {
+//     console.log("Bienvenido Juan y Pedro");
+// }
+
+/**
+ * EJEMPLO CON AND Y OR
+ */
+
+// const nombre = prompt("Ingrese un nombre"); // Pedro o Juan
+// const edad = parseInt(prompt("Ingrese la edad")); // >= 18
+//
+// if (
+//     (nombre == "Juan" || nombre == "Pedro") &&
+//     edad >= 18
+// ) {
+//     console.log("Bienvenido " + nombre + " al sistema");
+// } else {
+//     console.log("Acceso denegado");
+// }
+
+/**
+ * OPERADOR NOT
+ */
+
+// const numero = 10;
+//
+// const esNumero10 = (numero === 10);
+// const noEsNumero10 = !esNumero10;
+//
+// console.log(esNumero10);
+// console.log(noEsNumero10);
+
+// Si el número es igual a 10
+// if (esNumero10) {
+//     console.log("Es numero 10");
+// }
+
+// ..
+// ..
+
+// Si el número no es igual a 10
+// if (!esNumero10) {
+//     console.log("No es número 10");
+// }
+
