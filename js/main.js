@@ -1,261 +1,319 @@
-// const nombre = "Pepe";
-// const edad = 15;
-//
-// const resultado = 10 + 15;
-//
-// if (true) {
-//     console.log(resultado);
-//     console.log("h");
-//     console.log("a");
-//     console.log("b");
-//     console.log("c");
-//     console.log("d");
-// }
-//
-// console.log(edad);
-// console.log(nombre);
-
 /**
- * IF
+ * OPERADOR ++
  */
 
-// const nombre = "Pepe";
+// let numero = 10;
 //
-// if (nombre == "Pepe") {
-//     console.log("Hola pepe");
+// // numero = numero + 1;
+// numero++;
+// numero++;
+//
+// console.log(numero);
+
+/**
+ * FOR
+ */
+
+// for (let i = 0; i <= 10; i++) {
+//     console.log(i);
 // }
 
-// let edad = 15;
-//
-// if (edad == 18) {
-//     console.log("Tiene 15");
+// Ciclo que cuenta del 1 al 10
+// for (let i = 1; i <= 10; i++) {
+//     console.log(i);
+// }
+
+// Ciclo que cuenta los pares del 0 al 20
+// for (let i = 0; i <= 20; i = i + 2) {
+//     console.log(i);
 // }
 
 /**
- * IF - ELSE
+ * EJEMPLO CON FOR
  */
 
-// const nombre = "Pepe";
+// Sin bucles
+// const numero1 = parseInt(prompt("Ingrese un número"));
+// const numero2 = parseInt(prompt("Ingrese un número"));
+// const numero3 = parseInt(prompt("Ingrese un número"));
+// const numero4 = parseInt(prompt("Ingrese un número"));
+// const numero5 = parseInt(prompt("Ingrese un número"));
 //
-// if (nombre == "Pepe") {
+// const resultado = numero1 + numero2 + numero3 + numero4 + numero5;
+
+// Con ciclo for
+// let resultado = 0;
+// for (let i = 0; i < 5; i++) {
+//     const numero = parseInt(prompt("Ingrese un número"));
+//     resultado = resultado + numero;
+// }
 //
-//     console.log("Hola Pepe");
+// console.log(resultado);
+
+/**
+ * SENTENCIA BREAK Y CONTINUE
+ */
+
+// for (let i = 0; i <= 20; i = i + 2) {
+//     if (i >= 15) {
+//         break;
+//     }
 //
-// } else {
+//     console.log(i);
+// }
 //
-//     console.log("Hola persona que no es Pepe");
+// console.log("Finaliza el ciclo for");
+
+// for (let i = 0; i <= 20; i = i + 2) {
+//     if(i === 6 || i === 8 || i === 10) {
+//         continue;
+//     }
 //
+//     console.log(i);
 // }
 
+/**
+ * WHILE
+ */
+
+// Sin bucle while
 // const nombre = prompt("Ingrese el nombre");
-//
-// if (nombre == "Juan") {
-//     console.log("Hola Juan");
-// } else {
-//     console.log("Hola quien quiera que seas");
-// }
-
-/**
- * IF - ELSE IF
- */
-
-// const nombre = "Marcos";
-//
-// if (nombre == "Lautaro") {
-//     console.log("Hola Lautaro");
-// } else if (nombre == "Pepe") {
-//     console.log("Hola pepe");
-// } else if (nombre == "Juan") {
-//     console.log("Hola Juan");
-// } else {
-//     console.log("Hola persona que no es Lautaro, ni Juan ni Pepe");
-// }
-
-/**
- * EJEMPLOS IF
- */
-
-// const nombre = prompt("Ingrese su nombre");
 // const edad = parseInt(prompt("Ingrese la edad"));
 //
-// if (edad < 18) {
-//     alert("Acceso prohibido");
+// if(isNaN(edad)) {
+//     alert("Edad inválida");
 // } else {
 //     alert("Bienvenido " + nombre);
 // }
 
-/**
- * EJEMPLO COMPARANDO EL NaN
+// Con bucle while
+// const nombre = prompt("Ingrese el nombre");
+//
+// let edad = parseInt(prompt("Ingrese la edad"));
+//
+// Valido que la edad sea un número
+// while(isNaN(edad)) {
+//     alert("Edad inválida");
+//     edad = parseInt(prompt("Ingrese la edad"));
+// }
+//
+// Valido que la edad sea un número y sea mayor a 18
+// while(isNaN(edad) || edad < 18) {
+//
+//     if(isNaN(edad)) {
+//         alert("Edad inválida");
+//     } else if(edad < 18) {
+//         alert("Edad menor a 18");
+//     }
+//
+//     edad = parseInt(prompt("Ingrese la edad"));
+// }
+//
+// alert("Bienvenido " + nombre);
+
+/*
+    SENTENCIA BREAK Y CONTINUE EN WHILE
  */
 
-// const nombre = prompt("Ingrese su nombre");
-// const edad = parseInt(prompt("Ingrese la edad"));
+// const nombre = prompt("Ingrese un nombre");
 //
-// if(isNaN(edad)) {
-//     alert("Ingrese un número válido");
-// } else {
-//     if (edad < 18) {
-//         alert("Acceso prohibido");
+// let edad = parseInt(prompt("Ingrese la edad"));
+
+// Break
+// while (true) {
+//     if(isNaN(edad)) {
+//         alert("Edad inválida");
+//         edad = parseInt(prompt("Ingrese la edad"));
+//     } else if (edad < 18) {
+//         alert("Edad es menor a 18");
+//         edad = parseInt(prompt("Ingrese la edad"));
 //     } else {
-//         alert("Bienvenido " + nombre);
+//         break;
 //     }
 // }
 
+// Continue
+// while(isNaN(edad) || edad < 18) {
+//
+//     if(isNaN(edad)) {
+//         alert("Edad inválida");
+//     } else if(edad < 18) {
+//         alert("Edad menor a 18");
+//     }
+//
+//     edad = parseInt(prompt("Ingrese la edad"));
+// }
+//
+// alert("Bienvenido " + nombre);
+
 /**
- * EJEMPLO 2
- * IF
+ * DO WHILE
  */
 
-// const numero1 = parseFloat(prompt("Ingrese numero 1"));
-// const numero2 = parseFloat(prompt("ingrese número 2"));
+// const nombre = prompt("Ingrese el nombre");
 //
-// const resultado = numero1 + numero2;
+// let edad = parseInt(prompt("Ingrese la edad"));
+
+// Esto con while ♥
+// while(isNaN(edad) || edad < 18) {
+//     if(isNaN(edad)) {
+//         alert("Edad inválida");
+//     } else if(edad < 18) {
+//         alert("Edad menor a 18");
+//     }
 //
-// // if (resultado > 10) {
-// //     alert("El resultado es mayor que 10");
-// // } else {
-// //     alert("El resultado no es mayor a 10");
+//     edad = parseInt(prompt("Ingrese la edad"));
+// }
+
+// Con do while
+// do {
+//     if(isNaN(edad)) {
+//         alert("Edad inválida");
+//         edad = parseInt(prompt("Ingrese la edad"));
+//     } else if(edad < 18) {
+//         alert("Edad menor a 18");
+//         edad = parseInt(prompt("Ingrese la edad"));
+//     }
+// } while(isNaN(edad) || edad < 18)
+
+// alert("Bienvenido " + nombre);
+
+/**
+ * SWITCH
+ */
+
+// const menu = "Ingrese 1- Marketing, 2- Soporte técnico, 3- Darse de baja, 4- Promociones";
+// const opcion = parseInt(prompt("Ingrese la opción: " + menu));
+
+// Sin switch
+// if (opcion === 1) {
+//     // Marketing...
+// } else if(opcion === 2) {
+//     // Soporte técnico..
+// } else if(opcion === 3) {
+//     // Darse de baja
+// } else if(opcion === 4) {
+//     // Promociones
+// } else {
+//     alert("Opción inválida. " + menu);
+// }
+
+// Switch
+// switch (opcion) {
+//     case 1:
+//         // Marketing...
+//
+//         break;
+//
+//     case 2:
+//         // Soporte técnico
+//
+//         break;
+//
+//     case 3:
+//         // Darse de baja
+//
+//         break;
+//
+//     case 4:
+//         // Promociones
+//
+//         break;
+//
+//     case 5:
+//         // ...
+//
+//         break;
+//
+//     default:
+//         alert("Opción inválida " + menu);
+//         break;
+// }
+
+/**
+ * COMBINAR ESTRUCTURAS
+ */
+
+// const menu = "Ingrese 1- Marketing, 2- Soporte técnico, 3- Darse de baja, 4- Promociones";
+// let opcion = parseInt(prompt("Ingrese la opción: " + menu));
+//
+// while(isNaN(opcion)) {
+//     alert("Ingrese un número válido");
+//     opcion = parseInt(prompt("Ingrese la opción: " + menu));
+// }
+//
+// switch (opcion) {
+//
+//     case 1:
+//         alert("Marketing");
+//         break;
+//
+//     case 2:
+//
+//         const menuDeSoporteTecnico = "Ingrese 1- Soporte de internet, 2- Soporte de televisión, 3- Otros problemas";
+//         let opcionDeSoporteTecnico = parseInt(prompt("Ingrese la opción " + menuDeSoporteTecnico));
+//
+//         while(isNaN(opcionDeSoporteTecnico)) {
+//             alert("Ingrese un número válido");
+//             opcionDeSoporteTecnico = parseInt(prompt("Ingrese la opción " + menuDeSoporteTecnico));
+//         }
+//
+//         switch(opcionDeSoporteTecnico) {
+//             case 1:
+//                 alert("Soporte de internet");
+//                 break;
+//
+//             case 2:
+//                 alert("Soporte de televisión");
+//                 break;
+//
+//             case 3:
+//                 alert("Otro problema");
+//                 break;
+//
+//             default:
+//                 alert("Opción inválida");
+//                 break;
+//         }
+//
+//         break;
+//
+//     // ...
+//     // RESTO DE OPCIONES
+//     // ....
+// }
+
+/**
+ * EJERCICIO 9
+ * Realice un programa en donde se le solicite un número al usuario y le muestre en pantalla cuántos dígitos tiene. (Ej: Si ingreso 27, tiene que mostrarme 2. Si ingreso 115 me tiene que mostrar 3).
+ * AYUDA: Dividir por 10 a un número le remueve un dígito.
+ */
+
+// let numero = parseInt(prompt("Ingrese un número"));
+//
+// while(isNaN(numero)) {
+//     numero = parseInt(prompt("Ingrese un número"));
+// }
+//
+// // Forma 1
+// let cantidadDeDigitos = 1;
+// let resultado = numero / 10;
+//
+// while (resultado > 1) {
+//     resultado = resultado / 10;
+//
+//     console.log(resultado);
+//
+//     cantidadDeDigitos++;
+// }
+//
+// // Forma 2
+// // let cantidadDeDigitos = 0;
+// //
+// // while (numero > 1) {
+// //     numero = numero / 10;
+// //
+// //     cantidadDeDigitos++;
 // // }
 //
-// if (resultado < 10) {
-//     alert("El resultado es menor que 10");
-// } else if(resultado < 20) {
-//     alert("El resultado es menor que 20");
-// } else if(resultado < 30) {
-//     alert("El resultado es menor a 30");
-// } else {
-//     alert("El resultado es mayor que 30");
-// }
-
-/**
- * VARIABLES BOOLEANAS
- */
-
-// const booleana = false;
-//
-// if (booleana) {
-//     console.log("La variable es true");
-// }
-
-// const numero = 15;
-// // const esNumero10 = (numero == 10);
-// const esMayorA20 = (numero > 20);
-//
-// if (esMayorA20) {
-//
-// }
-//
-// // ..
-// // ..
-//
-// if (esMayorA20) {
-//
-// }
-
-/**
- * ES DISTINTO
- */
-
-// const numero1 = 15;
-// const numero2 = 15;
-
-// if (numero1 == numero2) {
-//     console.log("Son iguales");
-// }
-
-// if (numero1 != numero2) {
-//     console.log("Es distinto");
-// }
-
-/**
- * ESTRICTAMENTE IGUAL Y ESTRICTAMENTE DISTINTO
- */
-
-// const numero1 = 15;
-// const numero2 = 20;
-//
-// if (numero1 == numero2) {
-//     console.log("Son iguales");
-// }
-//
-// if (numero1 === numero2) {
-//     console.log("Son estrictamente iguales");
-// } else {
-//     console.log("No son estrictamente iguales");
-// }
-
-// const numero1 = 15;
-// const numero2 = "15";
-//
-// if (numero1 != numero2) {
-//     console.log("Son distintos");
-// } else {
-//     console.log("No son distintos");
-// }
-//
-// if (numero1 !== numero2) {
-//     console.log("Son estrictamente distintos");
-// }
-
-/**
- * AND Y OR
- */
-
-// AND
-
-// const nombre = "Pepe";
-// const edad = 25;
-//
-// if ( (nombre == "Pepe") && (edad == 20) ) {
-//     console.log("El nombre es Pepe y la edad es 20");
-// }
-
-// OR
-
-// const nombre = "Marcos";
-//
-// if ( (nombre == "Juan") || (nombre == "Pedro") ) {
-//     console.log("Bienvenido Juan y Pedro");
-// }
-
-/**
- * EJEMPLO CON AND Y OR
- */
-
-// const nombre = prompt("Ingrese un nombre"); // Pedro o Juan
-// const edad = parseInt(prompt("Ingrese la edad")); // >= 18
-//
-// if (
-//     (nombre == "Juan" || nombre == "Pedro") &&
-//     edad >= 18
-// ) {
-//     console.log("Bienvenido " + nombre + " al sistema");
-// } else {
-//     console.log("Acceso denegado");
-// }
-
-/**
- * OPERADOR NOT
- */
-
-// const numero = 10;
-//
-// const esNumero10 = (numero === 10);
-// const noEsNumero10 = !esNumero10;
-//
-// console.log(esNumero10);
-// console.log(noEsNumero10);
-
-// Si el número es igual a 10
-// if (esNumero10) {
-//     console.log("Es numero 10");
-// }
-
-// ..
-// ..
-
-// Si el número no es igual a 10
-// if (!esNumero10) {
-//     console.log("No es número 10");
-// }
-
+// console.log("La cantidad de dígitos es: " + cantidadDeDigitos);
