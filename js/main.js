@@ -1,319 +1,169 @@
 /**
- * OPERADOR ++
+ * FUNCIONES
  */
 
-// let numero = 10;
+// function imprimirNombre() {
+//     console.log("Hola Juan!");
+// }
 //
-// // numero = numero + 1;
-// numero++;
-// numero++;
-//
-// console.log(numero);
+// imprimirNombre();
 
 /**
- * FOR
+ * PARAMETROS
  */
 
-// for (let i = 0; i <= 10; i++) {
-//     console.log(i);
-// }
-
-// Ciclo que cuenta del 1 al 10
-// for (let i = 1; i <= 10; i++) {
-//     console.log(i);
-// }
-
-// Ciclo que cuenta los pares del 0 al 20
-// for (let i = 0; i <= 20; i = i + 2) {
-//     console.log(i);
-// }
-
-/**
- * EJEMPLO CON FOR
- */
-
-// Sin bucles
-// const numero1 = parseInt(prompt("Ingrese un número"));
-// const numero2 = parseInt(prompt("Ingrese un número"));
-// const numero3 = parseInt(prompt("Ingrese un número"));
-// const numero4 = parseInt(prompt("Ingrese un número"));
-// const numero5 = parseInt(prompt("Ingrese un número"));
-//
-// const resultado = numero1 + numero2 + numero3 + numero4 + numero5;
-
-// Con ciclo for
-// let resultado = 0;
-// for (let i = 0; i < 5; i++) {
-//     const numero = parseInt(prompt("Ingrese un número"));
-//     resultado = resultado + numero;
+// function imprimirNombre(nombreAImprimir) {
+//     console.log("Hola " + nombreAImprimir + "!");
 // }
 //
-// console.log(resultado);
+// const nombre = prompt("Ingrese un nombre");
+// imprimirNombre(nombre);
+
+// function sumar(numero1, numero2) {
+//     console.log(numero1);
+//     console.log(numero2);
+//
+//     const resultado = numero1 + numero2;
+//
+//     console.log("La suma es: " + resultado);
+// }
+
+// const numerito1 = 10;
+// const numerito2 = 30;
+//
+// sumar(numerito1, numerito2);
+// sumar(50, 10);
+
+// ...
+
+// sumar(10);
 
 /**
- * SENTENCIA BREAK Y CONTINUE
+ * RETURN
  */
 
-// for (let i = 0; i <= 20; i = i + 2) {
-//     if (i >= 15) {
+// Funciones
+// function obtenerSaludo(nombre) {
+//     if(nombre === "Mark") {
+//         return "Hello";
+//     } else if(nombre === "Paulinho") {
+//         return "Bom dia";
+//     } else {
+//         return "Hola";
+//     }
+// }
+//
+// function saludar(nombre) {
+//     const saludo = obtenerSaludo(nombre);
+//
+//     console.log(saludo + " " + nombre + "!");
+// }
+
+// Inicio del programa
+// const nombre = prompt("Ingrese su nombre");
+//
+// saludar(nombre);
+
+/**
+ * EJEMPLO DE RETURN 2
+ */
+
+// function multiplicar(numero1, numero2) {
+//     const resultado = numero1 * numero2;
+//
+//     return resultado;
+// }
+//
+// function suma(numero1, numero2) {
+//     const resultado = numero1 + numero2;
+//
+//     return resultado;
+// }
+//
+// const resultadoSuma = suma(10, 30);
+// const resultadoMultiplicacion = multiplicar(resultadoSuma, 2);
+//
+// console.log(resultadoSuma);
+// console.log(resultadoMultiplicacion);
+
+/**
+ * SCOPE
+ */
+
+// const nombre = "Pepe";
+// const edad = 40;
+//
+// if (nombre === "Pepe") {
+//
+//     const edad = 20;
+//
+//     if(edad === 20) {
+//
+//         const edad = 30;
+//
+//         console.log(nombre);
+//         console.log(edad);
+//     }
+// }
+
+// Scope en funciones
+// function sumar(numero1, numero2) {
+//     const resultado = numero1 + numero2;
+//     return resultado;
+// }
+//
+// function restar(numero1, numero2) {
+//     const resultado = numero1 - numero2;
+//     return resultado;
+// }
+//
+// console.log(sumar(10, 20));
+// console.log(restar(20, 10));
+
+// const num = 5;
+//
+// switch(num) {
+//     case 5:
+//         const num = 10;
+//         console.log(num);
 //         break;
-//     }
-//
-//     console.log(i);
-// }
-//
-// console.log("Finaliza el ciclo for");
-
-// for (let i = 0; i <= 20; i = i + 2) {
-//     if(i === 6 || i === 8 || i === 10) {
-//         continue;
-//     }
-//
-//     console.log(i);
 // }
 
 /**
- * WHILE
+ * FUNCIONES ANONIMAS
  */
 
-// Sin bucle while
-// const nombre = prompt("Ingrese el nombre");
-// const edad = parseInt(prompt("Ingrese la edad"));
-//
-// if(isNaN(edad)) {
-//     alert("Edad inválida");
-// } else {
-//     alert("Bienvenido " + nombre);
+// const saludar = function (nombre) {
+//     console.log("Hola " + nombre);
 // }
 
-// Con bucle while
-// const nombre = prompt("Ingrese el nombre");
-//
-// let edad = parseInt(prompt("Ingrese la edad"));
-//
-// Valido que la edad sea un número
-// while(isNaN(edad)) {
-//     alert("Edad inválida");
-//     edad = parseInt(prompt("Ingrese la edad"));
+/**
+ * FUNCIONES FLECHAS
+ */
+
+// Forma vieja
+// const saludar = function (nombre) {
+//     console.log("Hola " + nombre);
 // }
-//
-// Valido que la edad sea un número y sea mayor a 18
-// while(isNaN(edad) || edad < 18) {
-//
-//     if(isNaN(edad)) {
-//         alert("Edad inválida");
-//     } else if(edad < 18) {
-//         alert("Edad menor a 18");
-//     }
-//
-//     edad = parseInt(prompt("Ingrese la edad"));
+
+// Forma con función flecha
+// const saludar = (nombre) => {
+//     console.log("Hola " + nombre);
 // }
+
 //
-// alert("Bienvenido " + nombre);
+// saludar("Juan");
 
 /*
-    SENTENCIA BREAK Y CONTINUE EN WHILE
+    FUNCIÓN FLECHA CON RETURN
  */
 
-// const nombre = prompt("Ingrese un nombre");
+// const suma = (a, b) => a + b;
+// const suma = (a, b) => {
+//     a = a * 2;
+//     b = b * 2;
 //
-// let edad = parseInt(prompt("Ingrese la edad"));
-
-// Break
-// while (true) {
-//     if(isNaN(edad)) {
-//         alert("Edad inválida");
-//         edad = parseInt(prompt("Ingrese la edad"));
-//     } else if (edad < 18) {
-//         alert("Edad es menor a 18");
-//         edad = parseInt(prompt("Ingrese la edad"));
-//     } else {
-//         break;
-//     }
+//     return a + b;
 // }
 
-// Continue
-// while(isNaN(edad) || edad < 18) {
-//
-//     if(isNaN(edad)) {
-//         alert("Edad inválida");
-//     } else if(edad < 18) {
-//         alert("Edad menor a 18");
-//     }
-//
-//     edad = parseInt(prompt("Ingrese la edad"));
-// }
-//
-// alert("Bienvenido " + nombre);
-
-/**
- * DO WHILE
- */
-
-// const nombre = prompt("Ingrese el nombre");
-//
-// let edad = parseInt(prompt("Ingrese la edad"));
-
-// Esto con while ♥
-// while(isNaN(edad) || edad < 18) {
-//     if(isNaN(edad)) {
-//         alert("Edad inválida");
-//     } else if(edad < 18) {
-//         alert("Edad menor a 18");
-//     }
-//
-//     edad = parseInt(prompt("Ingrese la edad"));
-// }
-
-// Con do while
-// do {
-//     if(isNaN(edad)) {
-//         alert("Edad inválida");
-//         edad = parseInt(prompt("Ingrese la edad"));
-//     } else if(edad < 18) {
-//         alert("Edad menor a 18");
-//         edad = parseInt(prompt("Ingrese la edad"));
-//     }
-// } while(isNaN(edad) || edad < 18)
-
-// alert("Bienvenido " + nombre);
-
-/**
- * SWITCH
- */
-
-// const menu = "Ingrese 1- Marketing, 2- Soporte técnico, 3- Darse de baja, 4- Promociones";
-// const opcion = parseInt(prompt("Ingrese la opción: " + menu));
-
-// Sin switch
-// if (opcion === 1) {
-//     // Marketing...
-// } else if(opcion === 2) {
-//     // Soporte técnico..
-// } else if(opcion === 3) {
-//     // Darse de baja
-// } else if(opcion === 4) {
-//     // Promociones
-// } else {
-//     alert("Opción inválida. " + menu);
-// }
-
-// Switch
-// switch (opcion) {
-//     case 1:
-//         // Marketing...
-//
-//         break;
-//
-//     case 2:
-//         // Soporte técnico
-//
-//         break;
-//
-//     case 3:
-//         // Darse de baja
-//
-//         break;
-//
-//     case 4:
-//         // Promociones
-//
-//         break;
-//
-//     case 5:
-//         // ...
-//
-//         break;
-//
-//     default:
-//         alert("Opción inválida " + menu);
-//         break;
-// }
-
-/**
- * COMBINAR ESTRUCTURAS
- */
-
-// const menu = "Ingrese 1- Marketing, 2- Soporte técnico, 3- Darse de baja, 4- Promociones";
-// let opcion = parseInt(prompt("Ingrese la opción: " + menu));
-//
-// while(isNaN(opcion)) {
-//     alert("Ingrese un número válido");
-//     opcion = parseInt(prompt("Ingrese la opción: " + menu));
-// }
-//
-// switch (opcion) {
-//
-//     case 1:
-//         alert("Marketing");
-//         break;
-//
-//     case 2:
-//
-//         const menuDeSoporteTecnico = "Ingrese 1- Soporte de internet, 2- Soporte de televisión, 3- Otros problemas";
-//         let opcionDeSoporteTecnico = parseInt(prompt("Ingrese la opción " + menuDeSoporteTecnico));
-//
-//         while(isNaN(opcionDeSoporteTecnico)) {
-//             alert("Ingrese un número válido");
-//             opcionDeSoporteTecnico = parseInt(prompt("Ingrese la opción " + menuDeSoporteTecnico));
-//         }
-//
-//         switch(opcionDeSoporteTecnico) {
-//             case 1:
-//                 alert("Soporte de internet");
-//                 break;
-//
-//             case 2:
-//                 alert("Soporte de televisión");
-//                 break;
-//
-//             case 3:
-//                 alert("Otro problema");
-//                 break;
-//
-//             default:
-//                 alert("Opción inválida");
-//                 break;
-//         }
-//
-//         break;
-//
-//     // ...
-//     // RESTO DE OPCIONES
-//     // ....
-// }
-
-/**
- * EJERCICIO 9
- * Realice un programa en donde se le solicite un número al usuario y le muestre en pantalla cuántos dígitos tiene. (Ej: Si ingreso 27, tiene que mostrarme 2. Si ingreso 115 me tiene que mostrar 3).
- * AYUDA: Dividir por 10 a un número le remueve un dígito.
- */
-
-// let numero = parseInt(prompt("Ingrese un número"));
-//
-// while(isNaN(numero)) {
-//     numero = parseInt(prompt("Ingrese un número"));
-// }
-//
-// // Forma 1
-// let cantidadDeDigitos = 1;
-// let resultado = numero / 10;
-//
-// while (resultado > 1) {
-//     resultado = resultado / 10;
-//
-//     console.log(resultado);
-//
-//     cantidadDeDigitos++;
-// }
-//
-// // Forma 2
-// // let cantidadDeDigitos = 0;
-// //
-// // while (numero > 1) {
-// //     numero = numero / 10;
-// //
-// //     cantidadDeDigitos++;
-// // }
-//
-// console.log("La cantidad de dígitos es: " + cantidadDeDigitos);
+// console.log(suma(10, 30));
