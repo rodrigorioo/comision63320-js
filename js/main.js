@@ -1,169 +1,141 @@
 /**
- * FUNCIONES
+ * GUÍA IF, ELSE
+ * 6) Escriba un programa que permita calcular el costo total del producto con su IVA. Para esto, solicite al usuario el precio del producto, calcule su IVA (21%) y muéstrele en pantalla con un alert el precio final..
  */
 
-// function imprimirNombre() {
-//     console.log("Hola Juan!");
-// }
+// const precio = parseFloat(prompt("Ingrese el precio del producto"));
+
+/*
+    Forma 1 con Regla de 3 simple
+ */
+// const iva = (21 * precio) / 100;
+
+/*
+    Forma 2 con multiplicación
+ */
+// const iva = precio * 0.21;
+
+// const precioFinal = precio + iva;
+
+/*
+    Forma 3 con multiplicación
+ */
+// const precioFinal = precio * 1.21;
 //
-// imprimirNombre();
+// alert("El precio final es: $" + precioFinal);
 
 /**
- * PARAMETROS
+ * GUÍA CICLOS
+ * 11) Escriba un programa en el que el usuario ingrese un número y utilice bucles for anidados para generar un patrón de asteriscos como un triángulo. Por ejemplo, si el usuario ingresa 5, debería imprimir:
+    *
+    **
+    ***
+    ****
+    *****
  */
 
-// function imprimirNombre(nombreAImprimir) {
-//     console.log("Hola " + nombreAImprimir + "!");
-// }
+// const numero = parseInt(prompt("Ingrese un número"));
 //
-// const nombre = prompt("Ingrese un nombre");
-// imprimirNombre(nombre);
-
-// function sumar(numero1, numero2) {
-//     console.log(numero1);
-//     console.log(numero2);
+// for(let i = 1; i <= numero; i++) {
 //
-//     const resultado = numero1 + numero2;
-//
-//     console.log("La suma es: " + resultado);
-// }
-
-// const numerito1 = 10;
-// const numerito2 = 30;
-//
-// sumar(numerito1, numerito2);
-// sumar(50, 10);
-
-// ...
-
-// sumar(10);
-
-/**
- * RETURN
- */
-
-// Funciones
-// function obtenerSaludo(nombre) {
-//     if(nombre === "Mark") {
-//         return "Hello";
-//     } else if(nombre === "Paulinho") {
-//         return "Bom dia";
-//     } else {
-//         return "Hola";
+//     let asteriscos = "";
+//     for(let j = 0; j < i; j++) {
+//         asteriscos = asteriscos + "*";
 //     }
+//
+//     console.log(asteriscos);
 // }
-//
-// function saludar(nombre) {
-//     const saludo = obtenerSaludo(nombre);
-//
-//     console.log(saludo + " " + nombre + "!");
+
+/**
+ * FUNCIONES ANÓNIMAS vs FUNCIONES NORMALES
+ */
+
+// function iterar(funcion) {
+//     for(let i = 0; i < 10; i++) {
+//         funcion(i);
+//     }
 // }
 
 // Inicio del programa
-// const nombre = prompt("Ingrese su nombre");
-//
-// saludar(nombre);
+// const imprimir = (a) => {
+//     console.log("El valor es: " + a);
+// }
+// const multiplicarPor2 = (a) => {
+//     console.log(a * 2);
+// }
+
+// iterar(imprimir);
+// iterar(multiplicarPor2);
 
 /**
- * EJEMPLO DE RETURN 2
+ * SIMULADOR PRE ENTREGA
  */
 
-// function multiplicar(numero1, numero2) {
-//     const resultado = numero1 * numero2;
-//
-//     return resultado;
-// }
-//
-// function suma(numero1, numero2) {
-//     const resultado = numero1 + numero2;
-//
-//     return resultado;
-// }
-//
-// const resultadoSuma = suma(10, 30);
-// const resultadoMultiplicacion = multiplicar(resultadoSuma, 2);
-//
-// console.log(resultadoSuma);
-// console.log(resultadoMultiplicacion);
+// Funciones
+function opcionValida(opcionMenu) {
 
-/**
- * SCOPE
- */
+    while(isNaN(opcionMenu) || opcionMenu < 0 || opcionMenu > 3) {
+        alert("OPCIÓN INVÁLIDA");
+        opcionMenu = parseInt(prompt("Ingrese la opción: " + opcionesMenu));
+    }
 
-// const nombre = "Pepe";
-// const edad = 40;
-//
-// if (nombre === "Pepe") {
-//
-//     const edad = 20;
-//
-//     if(edad === 20) {
-//
-//         const edad = 30;
-//
-//         console.log(nombre);
-//         console.log(edad);
-//     }
-// }
+    if(opcionMenu === 0) {
+        alert("GRACIAS POR USAR NUESTRO SISTEMA");
+        return false;
+    }
 
-// Scope en funciones
-// function sumar(numero1, numero2) {
-//     const resultado = numero1 + numero2;
-//     return resultado;
-// }
-//
-// function restar(numero1, numero2) {
-//     const resultado = numero1 - numero2;
-//     return resultado;
-// }
-//
-// console.log(sumar(10, 20));
-// console.log(restar(20, 10));
+    return true;
+}
 
-// const num = 5;
-//
-// switch(num) {
-//     case 5:
-//         const num = 10;
-//         console.log(num);
-//         break;
-// }
+function agregarProducto() {
 
-/**
- * FUNCIONES ANONIMAS
- */
+    // Pedimos nombre y precio del producto
+    const nombreDelProducto = prompt("Ingrese nombre del producto");
+    const precioDelProducto = parseFloat(prompt("Ingrese precio del producto"));
 
-// const saludar = function (nombre) {
-//     console.log("Hola " + nombre);
-// }
+    // Concatenamos el nombre chequeando si ya hay un nombre para agregarle la coma
+    if(nombresDeProductos !== "") {
+        nombresDeProductos = nombresDeProductos + ", ";
+    }
 
-/**
- * FUNCIONES FLECHAS
- */
+    nombresDeProductos = nombresDeProductos + nombreDelProducto;
+    total = total + precioDelProducto;
 
-// Forma vieja
-// const saludar = function (nombre) {
-//     console.log("Hola " + nombre);
-// }
+    alert("Producto: " + nombreDelProducto + " agregado con éxito!");
+}
 
-// Forma con función flecha
-// const saludar = (nombre) => {
-//     console.log("Hola " + nombre);
-// }
+function listarProductos() {
+    alert("Productos: " + nombresDeProductos);
+}
 
-//
-// saludar("Juan");
+function mostrarTotal() {
+    alert("Total: $" + total);
+}
 
-/*
-    FUNCIÓN FLECHA CON RETURN
- */
+// Inicio del programa
+const opcionesMenu = "1- Agregar producto, 2- Listar productos, 3- Mostrar total, 0- Salir";
+let opcion = parseInt(prompt("Ingrese la opción: " + opcionesMenu));
 
-// const suma = (a, b) => a + b;
-// const suma = (a, b) => {
-//     a = a * 2;
-//     b = b * 2;
-//
-//     return a + b;
-// }
+let nombresDeProductos = "";
+let total = 0;
 
-// console.log(suma(10, 30));
+while(opcionValida(opcion)) {
+
+    switch (opcion) {
+
+        case 1:
+            agregarProducto();
+            break;
+
+        case 2:
+            listarProductos();
+            break;
+
+        case 3:
+            mostrarTotal();
+            break;
+    }
+
+    // Le volvemos a pedir la opción
+    opcion = parseInt(prompt("Ingrese la opción: " + opcionesMenu));
+}
