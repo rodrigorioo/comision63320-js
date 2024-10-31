@@ -1,141 +1,248 @@
-/**
- * GUÍA IF, ELSE
- * 6) Escriba un programa que permita calcular el costo total del producto con su IVA. Para esto, solicite al usuario el precio del producto, calcule su IVA (21%) y muéstrele en pantalla con un alert el precio final..
- */
-
-// const precio = parseFloat(prompt("Ingrese el precio del producto"));
-
-/*
-    Forma 1 con Regla de 3 simple
- */
-// const iva = (21 * precio) / 100;
-
-/*
-    Forma 2 con multiplicación
- */
-// const iva = precio * 0.21;
-
-// const precioFinal = precio + iva;
-
-/*
-    Forma 3 con multiplicación
- */
-// const precioFinal = precio * 1.21;
+// for(let i = 0; i < 5; i++) {
+//     const nombre = prompt("Ingrese el nombre");
+//     const apellido = prompt("Ingrese el apellido");
+//     const profesion = prompt("Ingrese la profesión");
+//     const edad = parseInt(prompt("Ingrese la edad"));
 //
-// alert("El precio final es: $" + precioFinal);
-
-/**
- * GUÍA CICLOS
- * 11) Escriba un programa en el que el usuario ingrese un número y utilice bucles for anidados para generar un patrón de asteriscos como un triángulo. Por ejemplo, si el usuario ingresa 5, debería imprimir:
-    *
-    **
-    ***
-    ****
-    *****
- */
-
-// const numero = parseInt(prompt("Ingrese un número"));
-//
-// for(let i = 1; i <= numero; i++) {
-//
-//     let asteriscos = "";
-//     for(let j = 0; j < i; j++) {
-//         asteriscos = asteriscos + "*";
-//     }
-//
-//     console.log(asteriscos);
-// }
-
-/**
- * FUNCIONES ANÓNIMAS vs FUNCIONES NORMALES
- */
-
-// function iterar(funcion) {
-//     for(let i = 0; i < 10; i++) {
-//         funcion(i);
+//     const persona = {
+//         nombre: nombre,
+//         apellido: apellido,
+//         profesion: profesion,
+//         edad: edad,
 //     }
 // }
 
-// Inicio del programa
-// const imprimir = (a) => {
-//     console.log("El valor es: " + a);
-// }
-// const multiplicarPor2 = (a) => {
-//     console.log(a * 2);
-// }
+// Forma 1 - Creando variables para cada prompt
+// const nombre = prompt("Ingrese el nombre");
+// const apellido = prompt("Ingrese el apellido");
+// const profesion = prompt("Ingrese la profesión");
+// const edad = parseInt(prompt("Ingrese la edad"));
 
-// iterar(imprimir);
-// iterar(multiplicarPor2);
+// // Forma 2 - Poniendo los prompt adentro del objeto
+// const persona = {
+//     nombre: prompt("Ingrese el nombre"),
+//     apellido: prompt("Ingrese el apellido"),
+//     profesion: prompt("Ingrese la profesión"),
+//     edad: parseInt(prompt("Ingrese la edad")),
+// }
+//
+// console.log(persona);
 
 /**
- * SIMULADOR PRE ENTREGA
+ * ACCEDER PROPIEDADES DE UN OBJETO
  */
 
-// Funciones
-function opcionValida(opcionMenu) {
+// const persona = {
+//     nombre: "Pepe",
+//     apellido: "Ramirez",
+//     profesion: "Gasista",
+//     edad: 40,
+// }
 
-    while(isNaN(opcionMenu) || opcionMenu < 0 || opcionMenu > 3) {
-        alert("OPCIÓN INVÁLIDA");
-        opcionMenu = parseInt(prompt("Ingrese la opción: " + opcionesMenu));
+// Forma 1 - Notación de punto
+// console.log(persona.edad);
+
+// Forma 2 - Notación de array
+// const nombreDePropiedad = "edad";
+// console.log(persona[nombreDePropiedad]);
+
+/**
+ * SETEAR PROPIEDADES DE OBJETOS
+ */
+
+// const persona = {
+//     nombre: "Pepe",
+//     apellido: "Ramirez",
+//     profesion: "Electricista",
+// }
+
+// persona.nombre = "Juan";
+// persona["nombre"] = "Pedro";
+//
+// persona.edad = 40;
+
+// console.log(persona);
+
+/**
+ * CONSTRUCTORES
+ */
+
+// function Persona(nombre, apellido, profesion, edad, sexo) {
+//     this.nombre = nombre;
+//     this.apellido = apellido;
+//     this.profesion = profesion;
+//     this.edad = edad;
+//     this.sexo = sexo;
+// }
+//
+// const persona1 = new Persona(
+//     "Pepe",
+//     "Ramirez",
+//     "Gasista",
+//     40,
+//     "Hombre",
+// );
+// const persona2 = new Persona(
+//     "Marcos",
+//     "Perez",
+//     "Electricista",
+//     50,
+//     "Hombre",
+// );
+
+// console.log(persona1);
+// console.log(persona2);
+
+// function Producto(nombre, precio, vendido = false) {
+//     this.nombre = nombre;
+//     this.precio = precio;
+//     this.vendido = vendido;
+// }
+//
+// const producto = new Producto("Lechuga", 30, true);
+//
+// console.log(producto);
+
+/**
+ * MÉTODOS
+ */
+
+// const nombre = "Pepe";
+// console.log(nombre.toUpperCase());
+
+// const edad = 50.1238721738;
+// console.log(edad.toFixed(4));
+// ESTO TIRA ERROR PORQUE EL MÉTODO TO UPPERCASE ES DE LOS STRINGS SOLAMENTE
+// console.log(edad.toUpperCase());
+
+// const bool = true;
+// console.log(typeof bool);
+
+/**
+ * MÉTODOS PERSONALIZADOS
+ */
+
+// function Producto(nombre, precio, vendido = false) {
+//     this.nombre = nombre;
+//     this.precio = precio;
+//     this.vendido = vendido;
+//
+//     // Forma vieja
+//     // this.calcularIva = function(precio) {
+//     //     return precio * 0.21;
+//     // }
+//
+//     // Forma nueva
+//     this.calcularIva = () => this.precio * 0.21;
+//
+//     this.imprimirNombre = () => {
+//         console.log("El nombre del producto es: " + this.nombre);
+//     }
+//
+//     this.vender = () => {
+//         this.vendido = true;
+//     }
+// }
+//
+// const producto = new Producto("Leche", 30);
+// const producto2 = new Producto("Yogurt", 50);
+
+// console.log(producto.calcularIva());
+// console.log(producto2.calcularIva());
+
+// producto.imprimirNombre();
+// producto2.imprimirNombre();
+
+/**
+ * FOR IN
+ */
+
+// const producto = {
+//     nombre: "Lechuga",
+//     precio: 20,
+//     vendido: true,
+// }
+
+// console.log("nombre" in producto) // true
+// console.log("eqwkjeqwjke" in producto) // false
+
+// for (const propiedad in producto) {
+//     const valor = producto[propiedad];
+//
+//     console.log("Propiedad: " + propiedad + " - Valor: " + valor);
+// }
+
+/**
+ * CLASES
+ */
+
+// class Producto {
+//     constructor(nombre, precio, vendido = false) {
+//         this.nombre = nombre;
+//         this.precio = precio;
+//         this.vendido = vendido;
+//     }
+//
+//     calcularIva() {
+//         return this.precio * 0.21;
+//     }
+//
+//     imprimirNombre() {
+//         console.log("El nombre del producto es: " + this.nombre);
+//     }
+//
+//     vender() {
+//         this.vendido = true;
+//     }
+// }
+//
+// const producto = new Producto("Leche", 30);
+// const producto2 = new Producto("Yogurt", 50);
+//
+// console.log(producto.calcularIva());
+// console.log(producto2.calcularIva());
+
+/**
+ * REFERENCIA
+ */
+
+// let a = "HOLA";
+// let b = a;
+//
+// a = "HOLA2";
+//
+// console.log(a);
+// console.log(b);
+
+// let a = {
+//     nombre: "Pepe",
+//     edad: 20,
+// }
+// let b = a;
+//
+// // a.nombre = "Gonzalo";
+// b.nombre = "Juan";
+//
+// console.log(a);
+// console.log(b);
+
+/**
+ * OBJETOS ANIDADOS
+ */
+
+const producto = {
+    nombre: "Yogurt",
+    precio: 20,
+    categoria: {
+        nombre: "Lacteos",
+        posicion: 10,
+    },
+    stock: {
+        deposito: {
+            nombre: "Zona Norte",
+        },
+        cantidad: 20,
     }
-
-    if(opcionMenu === 0) {
-        alert("GRACIAS POR USAR NUESTRO SISTEMA");
-        return false;
-    }
-
-    return true;
 }
 
-function agregarProducto() {
-
-    // Pedimos nombre y precio del producto
-    const nombreDelProducto = prompt("Ingrese nombre del producto");
-    const precioDelProducto = parseFloat(prompt("Ingrese precio del producto"));
-
-    // Concatenamos el nombre chequeando si ya hay un nombre para agregarle la coma
-    if(nombresDeProductos !== "") {
-        nombresDeProductos = nombresDeProductos + ", ";
-    }
-
-    nombresDeProductos = nombresDeProductos + nombreDelProducto;
-    total = total + precioDelProducto;
-
-    alert("Producto: " + nombreDelProducto + " agregado con éxito!");
-}
-
-function listarProductos() {
-    alert("Productos: " + nombresDeProductos);
-}
-
-function mostrarTotal() {
-    alert("Total: $" + total);
-}
-
-// Inicio del programa
-const opcionesMenu = "1- Agregar producto, 2- Listar productos, 3- Mostrar total, 0- Salir";
-let opcion = parseInt(prompt("Ingrese la opción: " + opcionesMenu));
-
-let nombresDeProductos = "";
-let total = 0;
-
-while(opcionValida(opcion)) {
-
-    switch (opcion) {
-
-        case 1:
-            agregarProducto();
-            break;
-
-        case 2:
-            listarProductos();
-            break;
-
-        case 3:
-            mostrarTotal();
-            break;
-    }
-
-    // Le volvemos a pedir la opción
-    opcion = parseInt(prompt("Ingrese la opción: " + opcionesMenu));
-}
+console.log(producto.stock.deposito.nombre);
