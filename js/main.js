@@ -1,336 +1,364 @@
-// const nombres = ["Marcos", "Juan", "Pedro", "Martin"];
-
-// console.log(nombres);
-
-// console.log(nombres[2]);
-
-// for(let i = 0; i < 4; i++) {
-//     const nombre = nombres[i];
-//
-//     console.log(nombre);
-// }
-
 /**
- * PROPIEDADES Y MÉTODOS DE ARRAYS
+ * ABSTRACCIÓN
  */
 
-// const nombres = ["Marcos", "Juan", "Pedro"];
-
-// for(let i = 0; i < nombres.length; i++) {
-//     console.log(nombres[i]);
-// }
-
-// Agregar elementos al final
-// nombres.push("Lautaro");
-// nombres.push("Federico");
-//
-// console.log(nombres);
-
-// Agregar elementos al principio
-// nombres.unshift("Martin");
-// nombres.unshift("Matias");
-// console.log(nombres);
-
-// Eliminar al final
-// const nombre = nombres.pop();
-// console.log(nombre);
-// console.log(nombres);
-
-// Eliminar al principio
-// nombres.shift();
-// console.log(nombres);
-
-/**
- * SPLICE
- */
-
-// const nombres = ["Marcos", "Juan", "Pedro", "Matias", "Lautaro"];
-
-// Elimino a Juan, Pedro y Matias
-// nombres.splice(1, 3);
-
-// nombres.splice(2, 1);
-
-// console.log(nombres);
-
-/**
- * JOIN
- */
-
-// const listaDeNombres = nombres.join("/");
-//
-// console.log(listaDeNombres);
-// console.log(nombres);
-
-/**
- * CONCAT
- */
-
-// const nombres1 = ["Marcos", "Juan"];
-// const nombres2 = ["Agustin", "Pedro", "Matias"];
-//
-// const nombres = nombres1.concat(nombres2);
-
-// console.log(nombres);
-
-/**
- * SLICE
- */
-
-// const nombres = ["Marcos", "Juan", "Pedro", "Matias", "Lautaro"];
-//
-// const nuevosNombres = nombres.slice(1, 3);
-//
-// console.log(nombres);
-// console.log(nuevosNombres);
-
-/**
- * INDEX OF
- */
-
-// const nombres = ["Marcos", "Juan", "Pedro", "Matias", "Lautaro", "Juan"];
-//
-// console.log(nombres.indexOf("Juan"));
-
-/**
- * INCLUDES
- */
-
-// const nombres = ["Marcos", "Juan", "Pedro", "Matias", "Lautaro", "Juan"];
-//
-// console.log(nombres.includes("jkeqwkjeqwkjeqwkj"));
-
-/**
- * REVERSE
- */
-
-// const nombres = ["Marcos", "Juan", "Pedro", "Matias", "Lautaro", "Juan"];
-//
-// nombres.reverse();
-//
-// console.log(nombres);
-
-/**
- * ARRAYS DE OBJETOS
- */
-
-// Objetos
-// class Producto {
-//     constructor (nombre, precio) {
-//         this.nombre = nombre;
-//         this.precio = precio;
-//     }
-// }
-
-// Función
-// function buscarProducto(nombre) {
-//
-//     let encontrado;
-//
-//     for(let i = 0; i < productos.length; i++) {
-//         const producto = productos[i];
-//
-//         if(producto.nombre === nombre) {
-//             encontrado = producto;
-//             break;
-//         }
-//     }
-//
-//     return encontrado;
-// }
-
-// Inicio del programa
-// const productos = [
-//     new Producto("Fideos", 50),
-//     new Producto("Arroz", 60),
-//     new Producto("Lechuga", 30),
-// ];
-
-// console.log(productos);
-// const producto = productos[1];
-
-// console.log(buscarProducto("dsajkdsakjdsajk"));
-
-/**
- * ARRAYS DE OBJETOS POR REFERENCIA
- */
-
-// const array = ["Juan", "Pedro"];
-// let a = "Marcos";
-//
-// array.push(a);
-//
-// a = "Federico";
-//
-// console.log(array); // ["Juan", "Pedro", "Marcos"]
-// console.log(a);
-
-/*
-    CON OBJETOS
- */
-
-// const array = [
-//     {
-//         nombre: "Lechuga",
-//         precio: 50,
-//     },
-//     {
-//         nombre: "Leche",
-//         precio: 25,
-//     },
-// ];
-// const a = {
-//     nombre: "Tomates",
-//     precio: 50,
-// };
-//
-// array.push(a);
-//
-// a.nombre = "Fideos";
-//
-// console.log(array);
-
-/*
-    CON ARRAYS
- */
-
-// const array = [
-//     [1, 2],
-//     [3, 4],
-// ];
-// const a = [5, 6];
-//
-// array.push(a);
-//
-// a.push(7);
-//
-// console.log(array);
-
-/**
- * FOR OF
- */
-
-// const array = ["Marcos", "Pedro", "Juan"];
-//
-// for(const nombre of array) {
-//     console.log(nombre);
-// }
-
-/**
- * EJEMPLO 1
- */
-
-// // Clases
-// class Producto {
-//     constructor(nombre, precio) {
-//         this.nombre = nombre;
-//         this.precio = precio;
-//     }
-// }
-//
-// // Funciones
-// function opcionValida() {
-//
-//     while(opcion < 0 || opcion > 3) {
-//         alert("OPCIÓN INVÁLIDA");
-//
-//         opcion = parseInt(prompt(opcionesMenu));
-//     }
-//
-//     if(opcion === 0) {
-//         alert("GRACIAS POR UTILIZAR NUESTRO SISTEMA");
-//         return false;
-//     }
-//
-//     return true;
-// }
-//
-// function buscarIndiceDeProducto(nombreDeProducto) {
-//     let indice = -1;
-//
-//     for(let i = 0; i < productos.length; i++) {
-//
-//         const producto = productos[i];
-//
-//         if(
-//             producto.nombre.toUpperCase() === nombreDeProducto.toUpperCase()
-//         ) {
-//             indice = i;
-//             break;
-//         }
-//     }
-//
-//     return indice;
-// }
-//
-// function eliminarProducto() {
-//
-//     // Pido el nombre del producto a eliminar
-//     let nombreProducto = prompt("Ingrese el nombre del producto a eliminar");
-//     let indiceProducto = buscarIndiceDeProducto(nombreProducto);
-//
-//     while(indiceProducto === -1) {
-//         alert("EL PRODUCTO NO EXISTE");
-//         nombreProducto = prompt("Ingrese el nombre del producto a eliminar");
-//         indiceProducto = buscarIndiceDeProducto(nombreProducto);
-//     }
-//
-//     // Elimino el producto
-//     productos.splice(indiceProducto, 1);
-// }
-//
-// function agregarProducto() {
-//
-//     const nombre = prompt("Nombre del producto");
-//     const precio = parseFloat(prompt("Precio del producto"));
-//
-//     // Creamos el producto
-//     const producto = new Producto(nombre, precio);
-//
-//     // Agregamos el producto a la lista
-//     productos.push(producto);
-//
-//     alert("Producto agregado satisfactoriamente!");
-// }
-//
-// function calcularTotal() {
-//
+// function sumarRango(inicio, fin) {
 //     let total = 0;
 //
-//     // Recorremos los productos
-//     for(let i = 0; i < productos.length; i++) {
-//         total = total + (productos[i].precio);
+//     for(let i = inicio; i <= fin; i++) {
+//         total += i;
 //     }
 //
-//     alert("EL TOTAL ES: $" + total);
+//     return total;
 // }
 //
-// // Inicio del programa
-// const opcionesMenu = "1- Agregar Producto, 2- Eliminar producto, 3- Calcular total, 0- Salir";
-// let opcion = parseInt(prompt(opcionesMenu));
+// const resultado = sumarRango(10, 50);
 //
-// let productos = [
-//     new Producto("Papa", 30),
-//     new Producto("Tomates", 50),
-//     new Producto("Lechuga", 25),
-// ];
+// console.log(resultado);
+
+/**
+ * RETORNAR FUNCIONES
+ */
+
+// Forma sin funciones de órden superior
+// function descuentoDel15(total) {
+//     return total * 0.15;
+// }
 //
-// while(opcionValida()) {
+// function descuentoDel20(total) {
+//     return total * 0.20;
+// }
 //
-//     switch(opcion) {
-//         case 1:
-//             agregarProducto();
-//             break;
-//
-//         case 2:
-//             eliminarProducto();
-//             break;
-//
-//         case 3:
-//             calcularTotal();
-//             break;
-//     }
-//
-//     opcion = parseInt(prompt(opcionesMenu));
+// function descuentoDel50(total) {
+//     return total * 0.50;
 // }
 
+// Función que retorne funciones
+// function generarDescuento(porcentaje) {
+//     return (total) => total * porcentaje;
+// }
+//
+// const descuentoDel15 = generarDescuento(0.15); // (total) => total * 0.15;
+// const descuentoDel20 = generarDescuento(0.20); // (total) => total * 0.20;
+// const descuentoDel50 = generarDescuento(0.50); // (total) => total * 0.50;
+//
+// console.log(descuentoDel15(100));
+// console.log(descuentoDel20(100));
+// console.log(descuentoDel50(100));
+
+/**
+ * RECIBIR FUNCION COMO PARÁMETRO
+ */
+
+// Sin recibir función
+// function saludarEnEspaniol(nombre) {
+//     return 'Hola! Cómo estás? ' + nombre;
+// }
+//
+// function saludarEnIngles(nombre) {
+//     return 'Hey! How are you? ' + nombre;
+// }
+//
+// function saludarEnPortugues(nombre) {
+//     return 'Salve ' + nombre;
+// }
+
+// Función que recibe funciones
+// function saludar(saludo, nombre) {
+//     return saludo() + nombre;
+// }
+//
+// const saludoEnEspaniol = saludar(
+//     () => 'Hola! Cómo estás? ',
+//     "Pepe",
+// );
+//
+// console.log(saludoEnEspaniol);
+
+/*
+    OTRO EJEMPLO
+ */
+
+// function porCadaUno(arr, fn) {
+//     for (const el of arr) {
+//         fn(el);
+//     }
+// }
+//
+// const numeritos = [1, 2, 3, 4];
+
+// porCadaUno(numeritos, (n) => console.log(n));
+// porCadaUno(numeritos, (n) => console.log(n * 2));
+
+/**
+ * METODOS DE ÓRDEN SUPERIOR
+ */
+
+/**
+ * FOR EACH
+ */
+
+// const nombres = ["Pepe", "Juan", "Matias"];
+//
+// nombres.forEach( (el) => {
+//     console.log("Hola! " + el);
+// })
+
+// Ejemplo 2
+// const numeros = [1, 2, 3, 4, 5];
+// let total = 0;
+//
+// numeros.forEach( (el) => {
+//     total += el;
+// });
+//
+// console.log(total);
+
+/*
+    OTRA FORMA
+ */
+// function saludar(nombre) {
+//     console.log("Hola! " + nombre);
+// }
+//
+// const saludar = (nombre) => {
+//     console.log("Hola! " + nombre);
+// }
+// nombres.forEach(saludar);
+
+/**
+ * FIND
+ */
+
+// const productos = [
+//     {
+//         nombre: "Tomates",
+//         precio: 1500,
+//         vendido: true,
+//     },
+//     {
+//         nombre: "Lechuga",
+//         precio: 2000,
+//         vendido: false,
+//     },
+//     {
+//         nombre: "Papa",
+//         precio: 3000,
+//         vendido: true,
+//     }
+// ];
+//
+// const lechuga = productos.find( (el) => {
+//     return el.nombre === "Lechuga";
+// });
+// const papa = productos.find( (el) => {
+//     return el.nombre === "Papa";
+// });
+// const yogurt = productos.find( (el) => {
+//     return el.nombre === "Yogurt";
+// });
+// const vendido = productos.find( (el) => {
+//     return el.vendido;
+// });
+//
+// console.log(vendido);
+
+/**
+ * FILTER
+ */
+
+// const productos = [
+//     {
+//         nombre: "Tomates",
+//         precio: 1500,
+//         vendido: true,
+//     },
+//     {
+//         nombre: "Lechuga",
+//         precio: 2000,
+//         vendido: false,
+//     },
+//     {
+//         nombre: "Papa",
+//         precio: 3000,
+//         vendido: true,
+//     }
+// ];
+//
+// const vendidos = productos.filter( (el) => {
+//     return el.vendido;
+// });
+// const precioMayorA5000 = productos.filter( (el) => {
+//     return el.precio > 5000;
+// });
+
+/**
+ * SOME
+ */
+
+// const productos = [
+//     {
+//         nombre: "Tomates",
+//         precio: 1500,
+//         vendido: true,
+//     },
+//     {
+//         nombre: "Lechuga",
+//         precio: 2000,
+//         vendido: false,
+//     },
+//     {
+//         nombre: "Papa",
+//         precio: 3000,
+//         vendido: true,
+//     }
+// ];
+
+// const estaVendido = productos.some( (el) => {
+//     return el.vendido;
+// });
+
+// const precioMayora5000 = productos.some( (el) => {
+//     return el.precio > 5000;
+// });
+//
+// console.log(precioMayora5000);
+
+/**
+ * MAP
+ */
+
+// const productos = [
+//     {
+//         nombre: "Tomates",
+//         precio: 1500,
+//         vendido: true,
+//     },
+//     {
+//         nombre: "Lechuga",
+//         precio: 2000,
+//         vendido: false,
+//     },
+//     {
+//         nombre: "Papa",
+//         precio: 3000,
+//         vendido: true,
+//     }
+// ];
+//
+// const nombresDeProductos = productos.map( (el) => {
+//     return el.nombre;
+// });
+//
+// const nuevosProductos = productos.map( (el) => {
+//      // el.precio = el.precio * 1.20;
+//
+//      return {
+//          nombre: el.nombre,
+//          precio: el.precio * 1.20,
+//          vendido: el.vendido,
+//      };
+// });
+//
+// console.log(productos);
+// console.log(nuevosProductos);
+
+/**
+ * REDUCE
+ */
+
+// const productos = [
+//     {
+//         nombre: "Tomates",
+//         precio: 1500,
+//         vendido: true,
+//     },
+//     {
+//         nombre: "Lechuga",
+//         precio: 2000,
+//         vendido: false,
+//     },
+//     {
+//         nombre: "Papa",
+//         precio: 3000,
+//         vendido: true,
+//     }
+// ];
+//
+// const total = productos.reduce( (acc, el) => {
+//     return acc + el.precio;
+// }, 0);
+//
+// console.log(total);
+
+/**
+ * SORT
+ */
+
+const productos = [
+    {
+        nombre: "Tomates",
+        precio: 1500,
+        vendido: true,
+    },
+    {
+        nombre: "Lechuga",
+        precio: 2000,
+        vendido: false,
+    },
+    {
+        nombre: "Papa",
+        precio: 3000,
+        vendido: true,
+    },
+    {
+        nombre: "Yogurt",
+        precio: 2500,
+        vendido: false,
+    },
+    {
+        nombre: "lEcHe",
+        precio: 1000,
+        vendido: true,
+    },
+    {
+        nombre: "Albahaca",
+        precio: 5000,
+        vendido: false,
+    }
+];
+
+// Menor a mayor
+// productos.sort( (a, b) => {
+//     if (a.precio > b.precio) {
+//         return 1;
+//     } else if(a.precio < b.precio) {
+//         return -1;
+//     }
+//
+//     return 0;
+// });
+
+// Mayor a menor
+// productos.sort( (a, b) => {
+//     if (a.precio < b.precio) {
+//         return 1;
+//     } else if(a.precio > b.precio) {
+//         return -1;
+//     }
+//
+//     return 0;
+// });
+
+// Ordenar por strings de menor a mayor
+productos.sort( (a, b) => {
+    if (a.nombre.toLowerCase() < b.nombre.toLowerCase()) {
+        return -1;
+    } else if(a.nombre.toLowerCase() > b.nombre.toLowerCase()) {
+        return 1;
+    }
+
+    return 0;
+});
+
+console.log(productos);
