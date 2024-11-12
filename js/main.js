@@ -1,364 +1,211 @@
-/**
- * ABSTRACCIÓN
- */
+// console.log(
+//     Math.min(5, 4, 7, 8, 1, 2, -Infinity),
+// )
 
-// function sumarRango(inicio, fin) {
-//     let total = 0;
-//
-//     for(let i = inicio; i <= fin; i++) {
-//         total += i;
-//     }
-//
-//     return total;
-// }
-//
-// const resultado = sumarRango(10, 50);
-//
-// console.log(resultado);
+// console.log(
+//     Math.max(3, 5, 8, 9, 1, 2, Infinity),
+// )
 
 /**
- * RETORNAR FUNCIONES
+ * REDONDEO
  */
 
-// Forma sin funciones de órden superior
-// function descuentoDel15(total) {
-//     return total * 0.15;
-// }
-//
-// function descuentoDel20(total) {
-//     return total * 0.20;
-// }
-//
-// function descuentoDel50(total) {
-//     return total * 0.50;
-// }
+// console.log(Math.ceil(3.999999))
+// console.log(Math.floor(3.0000001))
 
-// Función que retorne funciones
-// function generarDescuento(porcentaje) {
-//     return (total) => total * porcentaje;
-// }
-//
-// const descuentoDel15 = generarDescuento(0.15); // (total) => total * 0.15;
-// const descuentoDel20 = generarDescuento(0.20); // (total) => total * 0.20;
-// const descuentoDel50 = generarDescuento(0.50); // (total) => total * 0.50;
-//
-// console.log(descuentoDel15(100));
-// console.log(descuentoDel20(100));
-// console.log(descuentoDel50(100));
+// console.log(Math.round(3.3))
 
 /**
- * RECIBIR FUNCION COMO PARÁMETRO
+ * ABS
  */
 
-// Sin recibir función
-// function saludarEnEspaniol(nombre) {
-//     return 'Hola! Cómo estás? ' + nombre;
-// }
-//
-// function saludarEnIngles(nombre) {
-//     return 'Hey! How are you? ' + nombre;
-// }
-//
-// function saludarEnPortugues(nombre) {
-//     return 'Salve ' + nombre;
-// }
+// console.log(
+//     Math.abs(-500)
+// )
 
-// Función que recibe funciones
-// function saludar(saludo, nombre) {
-//     return saludo() + nombre;
-// }
+/**
+ * RANDOM
+ */
+
+// console.log(
+//     Math.round(
+//         Math.random() * 30 + 20
+//         // Math.random() * 10
+//     )
+// )
+
+/**
+ * DATE
+ */
+
+// const fechaHoy = new Date();
+// const fechaAyer = new Date(
+//     2024, 10, 11, 10, 30, 20
+// );
+
+// console.log(fechaHoy);
+// console.log(fechaAyer);
+
+// console.log(fechaAyer.toDateString())
+// console.log(fechaAyer.toLocaleString())
+
+// console.log(
+//     fechaAyer.getDate() + "_" + parseInt(fechaAyer.getMonth() + 1) + "_" + fechaAyer.getFullYear()
+// )
+
+// const diferencia = Math.abs(fechaHoy - fechaAyer);
 //
-// const saludoEnEspaniol = saludar(
-//     () => 'Hola! Cómo estás? ',
-//     "Pepe",
+// const milisegundosPorDia = 86400000;
+//
+// const diferenciaEnDias = Math.floor(
+//     diferencia / milisegundosPorDia
 // );
 //
-// console.log(saludoEnEspaniol);
-
-/*
-    OTRO EJEMPLO
- */
-
-// function porCadaUno(arr, fn) {
-//     for (const el of arr) {
-//         fn(el);
-//     }
-// }
-//
-// const numeritos = [1, 2, 3, 4];
-
-// porCadaUno(numeritos, (n) => console.log(n));
-// porCadaUno(numeritos, (n) => console.log(n * 2));
+// console.log(diferenciaEnDias);
 
 /**
- * METODOS DE ÓRDEN SUPERIOR
+ * SIMULAR DE PRE ENTREGA 2
  */
 
-/**
- * FOR EACH
- */
-
-// const nombres = ["Pepe", "Juan", "Matias"];
-//
-// nombres.forEach( (el) => {
-//     console.log("Hola! " + el);
-// })
-
-// Ejemplo 2
-// const numeros = [1, 2, 3, 4, 5];
-// let total = 0;
-//
-// numeros.forEach( (el) => {
-//     total += el;
-// });
-//
-// console.log(total);
-
-/*
-    OTRA FORMA
- */
-// function saludar(nombre) {
-//     console.log("Hola! " + nombre);
-// }
-//
-// const saludar = (nombre) => {
-//     console.log("Hola! " + nombre);
-// }
-// nombres.forEach(saludar);
-
-/**
- * FIND
- */
-
-// const productos = [
-//     {
-//         nombre: "Tomates",
-//         precio: 1500,
-//         vendido: true,
-//     },
-//     {
-//         nombre: "Lechuga",
-//         precio: 2000,
-//         vendido: false,
-//     },
-//     {
-//         nombre: "Papa",
-//         precio: 3000,
-//         vendido: true,
-//     }
-// ];
-//
-// const lechuga = productos.find( (el) => {
-//     return el.nombre === "Lechuga";
-// });
-// const papa = productos.find( (el) => {
-//     return el.nombre === "Papa";
-// });
-// const yogurt = productos.find( (el) => {
-//     return el.nombre === "Yogurt";
-// });
-// const vendido = productos.find( (el) => {
-//     return el.vendido;
-// });
-//
-// console.log(vendido);
-
-/**
- * FILTER
- */
-
-// const productos = [
-//     {
-//         nombre: "Tomates",
-//         precio: 1500,
-//         vendido: true,
-//     },
-//     {
-//         nombre: "Lechuga",
-//         precio: 2000,
-//         vendido: false,
-//     },
-//     {
-//         nombre: "Papa",
-//         precio: 3000,
-//         vendido: true,
-//     }
-// ];
-//
-// const vendidos = productos.filter( (el) => {
-//     return el.vendido;
-// });
-// const precioMayorA5000 = productos.filter( (el) => {
-//     return el.precio > 5000;
-// });
-
-/**
- * SOME
- */
-
-// const productos = [
-//     {
-//         nombre: "Tomates",
-//         precio: 1500,
-//         vendido: true,
-//     },
-//     {
-//         nombre: "Lechuga",
-//         precio: 2000,
-//         vendido: false,
-//     },
-//     {
-//         nombre: "Papa",
-//         precio: 3000,
-//         vendido: true,
-//     }
-// ];
-
-// const estaVendido = productos.some( (el) => {
-//     return el.vendido;
-// });
-
-// const precioMayora5000 = productos.some( (el) => {
-//     return el.precio > 5000;
-// });
-//
-// console.log(precioMayora5000);
-
-/**
- * MAP
- */
-
-// const productos = [
-//     {
-//         nombre: "Tomates",
-//         precio: 1500,
-//         vendido: true,
-//     },
-//     {
-//         nombre: "Lechuga",
-//         precio: 2000,
-//         vendido: false,
-//     },
-//     {
-//         nombre: "Papa",
-//         precio: 3000,
-//         vendido: true,
-//     }
-// ];
-//
-// const nombresDeProductos = productos.map( (el) => {
-//     return el.nombre;
-// });
-//
-// const nuevosProductos = productos.map( (el) => {
-//      // el.precio = el.precio * 1.20;
-//
-//      return {
-//          nombre: el.nombre,
-//          precio: el.precio * 1.20,
-//          vendido: el.vendido,
-//      };
-// });
-//
-// console.log(productos);
-// console.log(nuevosProductos);
-
-/**
- * REDUCE
- */
-
-// const productos = [
-//     {
-//         nombre: "Tomates",
-//         precio: 1500,
-//         vendido: true,
-//     },
-//     {
-//         nombre: "Lechuga",
-//         precio: 2000,
-//         vendido: false,
-//     },
-//     {
-//         nombre: "Papa",
-//         precio: 3000,
-//         vendido: true,
-//     }
-// ];
-//
-// const total = productos.reduce( (acc, el) => {
-//     return acc + el.precio;
-// }, 0);
-//
-// console.log(total);
-
-/**
- * SORT
- */
-
-const productos = [
-    {
-        nombre: "Tomates",
-        precio: 1500,
-        vendido: true,
-    },
-    {
-        nombre: "Lechuga",
-        precio: 2000,
-        vendido: false,
-    },
-    {
-        nombre: "Papa",
-        precio: 3000,
-        vendido: true,
-    },
-    {
-        nombre: "Yogurt",
-        precio: 2500,
-        vendido: false,
-    },
-    {
-        nombre: "lEcHe",
-        precio: 1000,
-        vendido: true,
-    },
-    {
-        nombre: "Albahaca",
-        precio: 5000,
-        vendido: false,
+// Objetos
+class Producto {
+    constructor(nombre, precio, cantidad) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
     }
+
+    obtenerSubtotal() {
+        return this.precio * this.cantidad;
+    }
+}
+
+// Funciones
+function obtenerProductoPorNombre() {
+    let nombreProducto = prompt("Ingrese el nombre del producto que quiere modificar");
+
+    let productoEncontrado = productos.find( (el) => {
+        return el.nombre.toLowerCase() === nombreProducto.toLowerCase();
+    });
+
+    // Mientras el find no encuentre nada y devuelva undefined quedamos encerrados en el while
+    while(productoEncontrado === undefined) {
+        alert("PRODUCTO NO EXISTE");
+
+        nombreProducto = prompt("Ingrese el nombre del producto que quiere modificar");
+
+        productoEncontrado = productos.find( (el) => {
+            return el.nombre.toLowerCase() === nombreProducto.toLowerCase();
+        });
+    }
+
+    return productoEncontrado;
+}
+
+function modificarProducto() {
+    const productoEncontrado = obtenerProductoPorNombre();
+
+    const nuevoPrecio = parseFloat(prompt("Ingrese nuevo precio"));
+    const nuevaCantidad = parseInt(prompt("Ingrese nueva cantidad"));
+
+    productoEncontrado.precio = nuevoPrecio;
+    productoEncontrado.cantidad = nuevaCantidad;
+
+    alert("PRODUCTO MODIFICADO");
+}
+
+function mostrarTotal() {
+    const total = productos.reduce( (acc, el) => {
+        // Forma 1
+        // return acc + (el.cantidad * el.precio);
+
+        // Forma 2
+        return acc + el.obtenerSubtotal();
+    }, 0);
+
+    alert("EL TOTAL ES: $" + total);
+}
+
+function obtenerNombreDeProductoUnico() {
+    let nombreProducto = prompt("Ingrese nombre de producto");
+
+    let productoExiste = productos.some( (el) => {
+        return el.nombre.toLowerCase() === nombreProducto.toLowerCase();
+    });
+
+    while(productoExiste) {
+        alert("PRODUCTO YA EXISTE!");
+        nombreProducto = prompt("Ingrese nombre de producto");
+        productoExiste = productos.some( (el) => {
+            return el.nombre.toLowerCase() === nombreProducto.toLowerCase();
+        });
+    }
+
+    return nombreProducto;
+}
+
+function crearProducto() {
+    // Pedimos los datos del producto
+    const nombreProducto = obtenerNombreDeProductoUnico();
+    const precioProducto = parseFloat(prompt("Ingrese precio de producto"));
+    const cantidad = parseInt(prompt("Ingrese cantidad"));
+
+    // Creamos el producto
+    const producto = new Producto(
+        nombreProducto,
+        precioProducto,
+        cantidad,
+    );
+
+    // Agregamos el producto al array
+    productos.push(producto);
+
+    alert("PRODUCTO AGREGADO");
+}
+
+function opcionValida() {
+
+    // Chequeamos si la opción es menor a 0 o mayor a 3
+    while(opcion < 0 || opcion > 3) {
+        alert("OPCIÓN INVÁLIDA");
+        opcion = parseInt(prompt(opciones));
+    }
+
+    // Si ingresó 0 para SALIR, retornamos false
+    if(opcion === 0) {
+        alert("SALIR");
+        return false;
+    }
+
+    return true;
+}
+
+// Inicio del programa
+const productos = [
+    new Producto("Tomates", 20, 2),
+    new Producto("Lechuga", 30, 3),
+    new Producto("Yogurt", 50, 4),
 ];
 
-// Menor a mayor
-// productos.sort( (a, b) => {
-//     if (a.precio > b.precio) {
-//         return 1;
-//     } else if(a.precio < b.precio) {
-//         return -1;
-//     }
-//
-//     return 0;
-// });
+const opciones = "1- Crear un producto, 2- Mostrar total de productos, 3- Modificar producto, 0- Salir";
+let opcion = parseInt(prompt(opciones));
 
-// Mayor a menor
-// productos.sort( (a, b) => {
-//     if (a.precio < b.precio) {
-//         return 1;
-//     } else if(a.precio > b.precio) {
-//         return -1;
-//     }
-//
-//     return 0;
-// });
+while(opcionValida()) {
 
-// Ordenar por strings de menor a mayor
-productos.sort( (a, b) => {
-    if (a.nombre.toLowerCase() < b.nombre.toLowerCase()) {
-        return -1;
-    } else if(a.nombre.toLowerCase() > b.nombre.toLowerCase()) {
-        return 1;
+    switch(opcion) {
+        case 1:
+            crearProducto();
+            break;
+
+        case 2:
+            mostrarTotal();
+            break;
+
+        case 3:
+            modificarProducto();
+            break;
     }
 
-    return 0;
-});
-
-console.log(productos);
+    // Volver a pedir la opción para no quedarse en un bucle infinito
+    opcion = parseInt(prompt(opciones));
+}
