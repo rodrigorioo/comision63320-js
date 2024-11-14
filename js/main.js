@@ -1,70 +1,146 @@
-// console.log(
-//     Math.min(5, 4, 7, 8, 1, 2, -Infinity),
-// )
-
-// console.log(
-//     Math.max(3, 5, 8, 9, 1, 2, Infinity),
-// )
-
 /**
- * REDONDEO
+ * GET ELEMENT BY ID
  */
 
-// console.log(Math.ceil(3.999999))
-// console.log(Math.floor(3.0000001))
+// const div = document.getElementById("contenedor");
+// const parrafo = document.getElementById("parrafo1");
 
-// console.log(Math.round(3.3))
+// console.log(div);
+// console.log(parrafo);
 
-/**
- * ABS
- */
-
-// console.log(
-//     Math.abs(-500)
-// )
-
-/**
- * RANDOM
- */
-
-// console.log(
-//     Math.round(
-//         Math.random() * 30 + 20
-//         // Math.random() * 10
-//     )
-// )
-
-/**
- * DATE
- */
-
-// const fechaHoy = new Date();
-// const fechaAyer = new Date(
-//     2024, 10, 11, 10, 30, 20
-// );
-
-// console.log(fechaHoy);
-// console.log(fechaAyer);
-
-// console.log(fechaAyer.toDateString())
-// console.log(fechaAyer.toLocaleString())
-
-// console.log(
-//     fechaAyer.getDate() + "_" + parseInt(fechaAyer.getMonth() + 1) + "_" + fechaAyer.getFullYear()
-// )
-
-// const diferencia = Math.abs(fechaHoy - fechaAyer);
+// const titulo = document.getElementById("titulo4");
 //
-// const milisegundosPorDia = 86400000;
-//
-// const diferenciaEnDias = Math.floor(
-//     diferencia / milisegundosPorDia
-// );
-//
-// console.log(diferenciaEnDias);
+// console.log(titulo);
 
 /**
- * SIMULAR DE PRE ENTREGA 2
+ * GET ELEMENTS BY CLASS NAME
+ */
+
+// const parrafitos = document.getElementsByClassName("parrafito");
+
+// console.log(parrafitos);
+
+// console.log(parrafitos[1]);
+
+// for(const parrafito of parrafitos) {
+//     console.log(parrafito);
+// }
+
+/**
+ * GET ELEMENTS BY TAG NAME
+ */
+
+// const parrafos = document.getElementsByTagName("p");
+//
+// console.log(parrafos);
+
+/**
+ * INNERHTML E INNERTEXT
+ */
+
+// const parrafo1 = document.getElementById("parrafo1");
+
+// console.log(parrafo1.innerHTML);
+// console.log(parrafo1.innerText);
+
+// Modificar HTML
+// parrafo1.innerHTML = "HOLA <strong>MI NOMBRE ES RODRIGO</strong>";
+// parrafo1.innerText = "HOLA MI NOMBRE ES RODRIGO <strong>MI NOMBRE ES RODRIGO</strong>";
+
+// Cambiar textos de los parrafitos
+
+// const parrafitos = document.getElementsByClassName("parrafito");
+//
+// for(const parrafito of parrafitos) {
+//
+//     // Edito el HTML
+//     parrafito.innerHTML = parrafito.innerHTML + " <strong>EDITADO</strong>";
+//
+//     console.log(parrafito.innerHTML);
+//
+//     // Edito el texto
+//     // parrafito.innerText = parrafito.innerText + " EDITADO";
+// }
+
+/**
+ * CLASS NAME
+ */
+
+// const parrafitos = document.getElementsByClassName("parrafito");
+//
+// for(const parrafito of parrafitos) {
+//     parrafito.className =
+//         parrafito.className + " parrafo-verde";
+// }
+
+/**
+ * CREAR Y AGREGAR NODOS
+ * ELIMINAR NODO
+ */
+
+// const h2 = document.createElement("h2");
+// h2.innerText = "TITULO H2";
+//
+// const p = document.createElement("p");
+// p.className = "parrafo-verde";
+// p.innerHTML = "<strong>TEXTO EN NEGRITA</strong>";
+//
+// // Obtener el div
+// const div = document.getElementById("contenedor");
+// div.append(h2);
+// div.append(p);
+
+// Eliminar elemento
+// h2.remove();
+
+/**
+ * INPUTS
+ */
+
+// const input = document.getElementById("inputsito");
+//
+// console.log(input.value);
+
+/**
+ * PLANTILLAS DE TEXTO
+ */
+
+// const nombres = ["Pedro", "Ramiro", "Juan"];
+//
+// const div = document.getElementById("contenedor");
+//
+// for(const nombre of nombres) {
+//     // div.innerHTML = div.innerHTML + "" +
+//     //     "<p>El nombre es: " +
+//     //     "<strong>" + nombre + "" +
+//     //     "</strong>";
+//
+//     div.innerHTML = div.innerHTML + `
+//         <p>El nombre es:
+//         <strong>${nombre}</strong>
+//     `;
+// }
+
+/**
+ * QUERY SELECTORS
+ */
+
+// const parrafo3 = document.querySelector("#contenedor p.parrafo-azul");
+//
+// console.log(parrafo3);
+
+// const parrafos = document.querySelectorAll("#contenedor p");
+//
+// for(const parrafo of parrafos) {
+//     console.log(parrafo);
+// }
+
+// const parrafo2 = document.querySelector("#contenedor p:nth-child(2)");
+//
+// console.log(parrafo2);
+
+/**
+ * EJEMPLO DE DOM
  */
 
 // Objetos
@@ -112,6 +188,8 @@ function modificarProducto() {
     productoEncontrado.cantidad = nuevaCantidad;
 
     alert("PRODUCTO MODIFICADO");
+
+    renderizarTablaProductos();
 }
 
 function mostrarTotal() {
@@ -161,6 +239,8 @@ function crearProducto() {
     productos.push(producto);
 
     alert("PRODUCTO AGREGADO");
+
+    renderizarTablaProductos();
 }
 
 function opcionValida() {
@@ -180,12 +260,42 @@ function opcionValida() {
     return true;
 }
 
+function renderizarTablaProductos() {
+
+    tbodyProductos.innerHTML = "";
+
+    for(const producto of productos) {
+
+        // Forma 1
+        // tbodyProductos.innerHTML = tbodyProductos.innerHTML + `
+        //     <tr>
+        //         <td>${producto.nombre}</td>
+        //         <td>$${producto.precio}</td>
+        //         <td>${producto.cantidad}</td>
+        //     </tr>
+        // `;
+
+        // Forma 2
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+                <td>${producto.nombre}</td>
+                <td>$${producto.precio}</td>
+                <td>${producto.cantidad}</td>
+        `;
+        tbodyProductos.append(tr);
+    }
+}
+
 // Inicio del programa
+const tbodyProductos = document.getElementById("tbodyProductos");
+
 const productos = [
     new Producto("Tomates", 20, 2),
     new Producto("Lechuga", 30, 3),
     new Producto("Yogurt", 50, 4),
 ];
+
+renderizarTablaProductos();
 
 const opciones = "1- Crear un producto, 2- Mostrar total de productos, 3- Modificar producto, 0- Salir";
 let opcion = parseInt(prompt(opciones));
