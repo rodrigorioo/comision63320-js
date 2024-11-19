@@ -1,146 +1,104 @@
 /**
- * GET ELEMENT BY ID
+ * ADD EVENT LISTENER
  */
 
-// const div = document.getElementById("contenedor");
-// const parrafo = document.getElementById("parrafo1");
+// const cuadradito = document.getElementById("cuadradito");
 
-// console.log(div);
-// console.log(parrafo);
-
-// const titulo = document.getElementById("titulo4");
-//
-// console.log(titulo);
+// cuadradito.addEventListener(
+//     "click",
+//     () => {
+//         alert("SE CLICKEO EL CUADRADITO");
+//     }
+// );
 
 /**
- * GET ELEMENTS BY CLASS NAME
+ * EVENTOS DEL MOUSE
  */
 
-// const parrafitos = document.getElementsByClassName("parrafito");
+// const cuadradito = document.getElementById("cuadradito");
 
-// console.log(parrafitos);
+// cuadradito.addEventListener("mousedown", () => {
+//     console.log("SE OPRIMIÓ EL BOTÓN DEL MOUSE");
+// });
+//
+// cuadradito.addEventListener("mouseup", () => {
+//     console.log("SE SOLTÓ EL BOTÓN DEL MOUSE");
+// });
+//
+// cuadradito.addEventListener("mouseover", () => {
+//     console.log("CUANDO EL PUNTERO DEL MOUSE ENTRA AL ELEMENTO");
+// });
+//
+// cuadradito.addEventListener("mouseout", () => {
+//     console.log("CUANDO EL PUNTERO DEL MOUSE SALE DEL ELEMENTO");
+// });
 
-// console.log(parrafitos[1]);
+// cuadradito.addEventListener("mousemove", () => {
+//     console.log("PUNTERO SOBRE EL ELEMENTO");
+// });
 
-// for(const parrafito of parrafitos) {
-//     console.log(parrafito);
-// }
+// cuadradito.addEventListener("click", () => {
+//     console.log("click sobre elemento");
+// });
 
 /**
- * GET ELEMENTS BY TAG NAME
+ * EVENTOS DEL TECLADO
  */
 
-// const parrafos = document.getElementsByTagName("p");
+// const inputsito = document.getElementById("inputsito");
+// const selectsito = document.getElementById("selectsito");
+
+// inputsito.addEventListener("keydown", () => {
+//     console.log("SE EJECUTÓ EL KEYDOWN");
+// });
 //
-// console.log(parrafos);
+// inputsito.addEventListener("keyup", () => {
+//     console.log("SE EJECUTÓ EVENTO DE KEYUP");
+// });
+
+// inputsito.addEventListener("change", () => {
+//     console.log(`CHANGE - EL VALOR DEL INPUT ES: ${inputsito.value}`);
+// });
+
+// selectsito.addEventListener("change", () => {
+//     console.log(`EL VALOR DEL SELECT ES: ${selectsito.value}`);
+// });
+
+// inputsito.addEventListener("input", () => {
+//     console.log(`INPUT - EL VALOR DEL INPUT ES: ${inputsito.value}`);
+// });
 
 /**
- * INNERHTML E INNERTEXT
+ * EVENTO DE SUBMIT
  */
 
-// const parrafo1 = document.getElementById("parrafo1");
-
-// console.log(parrafo1.innerHTML);
-// console.log(parrafo1.innerText);
-
-// Modificar HTML
-// parrafo1.innerHTML = "HOLA <strong>MI NOMBRE ES RODRIGO</strong>";
-// parrafo1.innerText = "HOLA MI NOMBRE ES RODRIGO <strong>MI NOMBRE ES RODRIGO</strong>";
-
-// Cambiar textos de los parrafitos
-
-// const parrafitos = document.getElementsByClassName("parrafito");
+// const formsito = document.getElementById("formsito");
+// const parametro1 = document.querySelector('input[name="parametro1"]');
+// const parametro2 = document.querySelector('input[name="parametro2"]');
 //
-// for(const parrafito of parrafitos) {
+// parametro1.addEventListener("keydown", (e) => {
+//     const vocales = ["a", "e", "i", "o", "u"];
+//     const key = e.key;
 //
-//     // Edito el HTML
-//     parrafito.innerHTML = parrafito.innerHTML + " <strong>EDITADO</strong>";
+//     if(vocales.includes(key)) {
+//         e.preventDefault();
+//     }
+// });
+
+// formsito.addEventListener("submit", (e) => {
 //
-//     console.log(parrafito.innerHTML);
+//     console.log(e);
 //
-//     // Edito el texto
-//     // parrafito.innerText = parrafito.innerText + " EDITADO";
-// }
+//     e.preventDefault();
+//
+//
+//     console.log(`EL VALOR DEL PARAMETRO1 ES: ${parametro1.value}`);
+//     console.log(`EL VALOR DEL PARAMETRO2 ES: ${parametro2.value}`);
+//
+// });
 
 /**
- * CLASS NAME
- */
-
-// const parrafitos = document.getElementsByClassName("parrafito");
-//
-// for(const parrafito of parrafitos) {
-//     parrafito.className =
-//         parrafito.className + " parrafo-verde";
-// }
-
-/**
- * CREAR Y AGREGAR NODOS
- * ELIMINAR NODO
- */
-
-// const h2 = document.createElement("h2");
-// h2.innerText = "TITULO H2";
-//
-// const p = document.createElement("p");
-// p.className = "parrafo-verde";
-// p.innerHTML = "<strong>TEXTO EN NEGRITA</strong>";
-//
-// // Obtener el div
-// const div = document.getElementById("contenedor");
-// div.append(h2);
-// div.append(p);
-
-// Eliminar elemento
-// h2.remove();
-
-/**
- * INPUTS
- */
-
-// const input = document.getElementById("inputsito");
-//
-// console.log(input.value);
-
-/**
- * PLANTILLAS DE TEXTO
- */
-
-// const nombres = ["Pedro", "Ramiro", "Juan"];
-//
-// const div = document.getElementById("contenedor");
-//
-// for(const nombre of nombres) {
-//     // div.innerHTML = div.innerHTML + "" +
-//     //     "<p>El nombre es: " +
-//     //     "<strong>" + nombre + "" +
-//     //     "</strong>";
-//
-//     div.innerHTML = div.innerHTML + `
-//         <p>El nombre es:
-//         <strong>${nombre}</strong>
-//     `;
-// }
-
-/**
- * QUERY SELECTORS
- */
-
-// const parrafo3 = document.querySelector("#contenedor p.parrafo-azul");
-//
-// console.log(parrafo3);
-
-// const parrafos = document.querySelectorAll("#contenedor p");
-//
-// for(const parrafo of parrafos) {
-//     console.log(parrafo);
-// }
-
-// const parrafo2 = document.querySelector("#contenedor p:nth-child(2)");
-//
-// console.log(parrafo2);
-
-/**
- * EJEMPLO DE DOM
+ * EJEMPLO EVENTOS
  */
 
 // Objetos
@@ -157,76 +115,46 @@ class Producto {
 }
 
 // Funciones
-function obtenerProductoPorNombre() {
-    let nombreProducto = prompt("Ingrese el nombre del producto que quiere modificar");
-
-    let productoEncontrado = productos.find( (el) => {
-        return el.nombre.toLowerCase() === nombreProducto.toLowerCase();
-    });
-
-    // Mientras el find no encuentre nada y devuelva undefined quedamos encerrados en el while
-    while(productoEncontrado === undefined) {
-        alert("PRODUCTO NO EXISTE");
-
-        nombreProducto = prompt("Ingrese el nombre del producto que quiere modificar");
-
-        productoEncontrado = productos.find( (el) => {
-            return el.nombre.toLowerCase() === nombreProducto.toLowerCase();
-        });
-    }
-
-    return productoEncontrado;
-}
-
-function modificarProducto() {
-    const productoEncontrado = obtenerProductoPorNombre();
-
-    const nuevoPrecio = parseFloat(prompt("Ingrese nuevo precio"));
-    const nuevaCantidad = parseInt(prompt("Ingrese nueva cantidad"));
-
-    productoEncontrado.precio = nuevoPrecio;
-    productoEncontrado.cantidad = nuevaCantidad;
-
-    alert("PRODUCTO MODIFICADO");
-
-    renderizarTablaProductos();
-}
-
-function mostrarTotal() {
-    const total = productos.reduce( (acc, el) => {
+function obtenerTotal() {
+    return productos.reduce( (acc, el) => {
         // Forma 1
         // return acc + (el.cantidad * el.precio);
 
         // Forma 2
         return acc + el.obtenerSubtotal();
     }, 0);
-
-    alert("EL TOTAL ES: $" + total);
 }
 
-function obtenerNombreDeProductoUnico() {
-    let nombreProducto = prompt("Ingrese nombre de producto");
-
-    let productoExiste = productos.some( (el) => {
-        return el.nombre.toLowerCase() === nombreProducto.toLowerCase();
+function nombreProductoExiste(nombre) {
+    return productos.some( (el) => {
+        return el.nombre.toLowerCase() === nombre.toLowerCase();
     });
-
-    while(productoExiste) {
-        alert("PRODUCTO YA EXISTE!");
-        nombreProducto = prompt("Ingrese nombre de producto");
-        productoExiste = productos.some( (el) => {
-            return el.nombre.toLowerCase() === nombreProducto.toLowerCase();
-        });
-    }
-
-    return nombreProducto;
 }
 
-function crearProducto() {
+function crearProducto(e) {
+
+    e.preventDefault();
+
+    // Obtener los inputs
+    const inputNombreProducto = document.getElementById("nombreProducto");
+    const inputPrecioProducto = document.getElementById("precioProducto");
+    const inputCantidadProducto = document.getElementById("cantidadProducto");
+
     // Pedimos los datos del producto
-    const nombreProducto = obtenerNombreDeProductoUnico();
-    const precioProducto = parseFloat(prompt("Ingrese precio de producto"));
-    const cantidad = parseInt(prompt("Ingrese cantidad"));
+    const nombreProducto = inputNombreProducto.value;
+    const precioProducto = parseFloat(inputPrecioProducto.value);
+    const cantidad = parseInt(inputCantidadProducto.value);
+
+    // Limpiamos inputs
+    inputNombreProducto.value = "";
+    inputCantidadProducto.value = "";
+    inputPrecioProducto.value = "";
+
+    // Chequeamos si el nombre del producto no existe
+    if(nombreProductoExiste(nombreProducto)) {
+        alert("PRODUCTO YA EXISTE");
+        return;
+    }
 
     // Creamos el producto
     const producto = new Producto(
@@ -243,21 +171,50 @@ function crearProducto() {
     renderizarTablaProductos();
 }
 
-function opcionValida() {
+function renderizarTotal() {
+    spanTotal.innerText = obtenerTotal();
+}
 
-    // Chequeamos si la opción es menor a 0 o mayor a 3
-    while(opcion < 0 || opcion > 3) {
-        alert("OPCIÓN INVÁLIDA");
-        opcion = parseInt(prompt(opciones));
-    }
+function clickSpanPrecioProducto(tdPrecio, spanPrecio, producto) {
+    // Crear input
+    const inputPrecio = document.createElement("input");
+    inputPrecio.type = "text";
+    inputPrecio.value = producto.precio;
 
-    // Si ingresó 0 para SALIR, retornamos false
-    if(opcion === 0) {
-        alert("SALIR");
-        return false;
-    }
+    inputPrecio.addEventListener("change", () => {
+        // Cambiamos precio de producto
+        producto.precio = inputPrecio.value;
 
-    return true;
+        // Volver a renderizar la tabla de productos
+        renderizarTablaProductos();
+    });
+
+    // Agregar input al td
+    tdPrecio.append(inputPrecio);
+
+    // Ocultar span
+    spanPrecio.className = "ocultar-elemento";
+}
+
+function clickSpanCantidadProducto(tdPrecio, spanPrecio, producto) {
+    // Crear input
+    const inputCantidad = document.createElement("input");
+    inputCantidad.type = "text";
+    inputCantidad.value = producto.cantidad;
+
+    inputCantidad.addEventListener("change", () => {
+        // Cambiamos cantidad de producto
+        producto.cantidad = inputCantidad.value;
+
+        // Volver a renderizar la tabla de productos
+        renderizarTablaProductos();
+    });
+
+    // Agregar input al td
+    tdPrecio.append(inputCantidad);
+
+    // Ocultar span
+    spanPrecio.className = "ocultar-elemento";
 }
 
 function renderizarTablaProductos() {
@@ -265,29 +222,54 @@ function renderizarTablaProductos() {
     tbodyProductos.innerHTML = "";
 
     for(const producto of productos) {
-
-        // Forma 1
-        // tbodyProductos.innerHTML = tbodyProductos.innerHTML + `
-        //     <tr>
-        //         <td>${producto.nombre}</td>
-        //         <td>$${producto.precio}</td>
-        //         <td>${producto.cantidad}</td>
-        //     </tr>
-        // `;
-
-        // Forma 2
+        // Creamos tr
         const tr = document.createElement("tr");
-        tr.innerHTML = `
-                <td>${producto.nombre}</td>
-                <td>$${producto.precio}</td>
-                <td>${producto.cantidad}</td>
-        `;
+
+        // Creamos tds
+        const tdNombre = document.createElement("td");
+        const tdPrecio = document.createElement("td");
+        const tdCantidad = document.createElement("td");
+        const tdAcciones = document.createElement("td");
+
+        tdNombre.innerText = `${producto.nombre}`;
+
+        const spanPrecio = document.createElement("span");
+        spanPrecio.innerText = `$${producto.precio}`;
+        spanPrecio.addEventListener("click", () => {
+            clickSpanPrecioProducto(tdPrecio, spanPrecio, producto);
+        });
+
+        const spanCantidad = document.createElement("span");
+        spanCantidad.innerText = `${producto.cantidad}`;
+        spanCantidad.addEventListener("click", () => {
+            clickSpanCantidadProducto(tdCantidad, spanCantidad, producto);
+        });
+
+        tdPrecio.append(spanPrecio);
+        tdCantidad.append(spanCantidad);
+
+        // TD acciones
+        const botonEliminar = document.createElement("button");
+        botonEliminar.innerText = "Eliminar";
+
+        // TODO: Eliminar producto
+
+        tdAcciones.append(botonEliminar);
+
+        // Agregar tds al tr
+        tr.append(tdNombre, tdPrecio, tdCantidad, tdAcciones);
+
         tbodyProductos.append(tr);
     }
+
+    // Renderizamos el total
+    renderizarTotal();
 }
 
 // Inicio del programa
+const formAgregarProducto = document.getElementById("formAgregarProducto");
 const tbodyProductos = document.getElementById("tbodyProductos");
+const spanTotal = document.getElementById("total");
 
 const productos = [
     new Producto("Tomates", 20, 2),
@@ -297,25 +279,4 @@ const productos = [
 
 renderizarTablaProductos();
 
-const opciones = "1- Crear un producto, 2- Mostrar total de productos, 3- Modificar producto, 0- Salir";
-let opcion = parseInt(prompt(opciones));
-
-while(opcionValida()) {
-
-    switch(opcion) {
-        case 1:
-            crearProducto();
-            break;
-
-        case 2:
-            mostrarTotal();
-            break;
-
-        case 3:
-            modificarProducto();
-            break;
-    }
-
-    // Volver a pedir la opción para no quedarse en un bucle infinito
-    opcion = parseInt(prompt(opciones));
-}
+formAgregarProducto.addEventListener("submit", crearProducto);

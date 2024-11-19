@@ -5,19 +5,23 @@
     <title>Curso de JavaScript</title>
 
     <style>
-        .parrafo-verde {
-            color: green;
+        .cuadrado {
+            width: 50px;
+            height: 50px;
+            background: red;
         }
-        .parrafo-rojo {
-            color: red;
-        }
-        .parrafo-azul {
-            color: blue;
+
+        table {
+            margin-top: 1rem;
         }
 
         table, th, td {
             border: 1px solid black;
             padding: 0.5rem;
+        }
+
+        .ocultar-elemento {
+            display: none;
         }
     </style>
 </head>
@@ -25,47 +29,48 @@
 
 <h1>Bienvenidos al curso de JavaScript</h1>
 
-<!--<div id="contenedor">-->
-<!--    <p class="parrafito">PARRAFO 1</p>-->
-<!--    <p class="parrafito">PARRAFO 2</p>-->
-<!--    <p class="parrafito">PARRAFO 3</p>-->
-<!--</div>-->
+<!--<div class="cuadrado" id="cuadradito"></div>-->
 
-<!--<p id="parrafo1">-->
-<!--    HOLA-->
-<!--    <strong>COMO ESTAS</strong>-->
-<!--    <span style="color: red">MI NOMBRE ES RODRIGO</span>-->
-<!--</p>-->
+<!--<input type="text" id="inputsito" />-->
 
-<!--<h4 id="titulo4">TITULO</h4>-->
+<!--<select id="selectsito">-->
+<!--    <option value="opc1">Opcion 1</option>-->
+<!--    <option value="opc2">Opcion 2</option>-->
+<!--    <option value="opc3">Opcion 3</option>-->
+<!--</select>-->
 
-<!--<input type="text" id="inputsito" value="Rodrigo" />-->
+<!--<form id="formsito">-->
+<!--    <input type="text" name="parametro1" />-->
+<!--    <input type="text" name="parametro2" />-->
 
-<!--<div id="contenedor">-->
-<!--&lt;!&ndash;    <p class="parrafo-verde">PARRAFO 1</p>&ndash;&gt;-->
-<!--&lt;!&ndash;    <p class="parrafo-rojo">PARRAFO 2</p>&ndash;&gt;-->
-<!--&lt;!&ndash;    <p class="parrafo-azul">PARRAFO 3</p>&ndash;&gt;-->
+<!--    <button type="submit">ENVIAR FORMULARIO</button>-->
+<!--</form>-->
 
-<!--    <p>PARRAFO 1</p>-->
-<!--    <p>PARRAFO 2</p>-->
-<!--    <p>PARRAFO 3</p>-->
-<!--</div>-->
-
-<!--<p class="parrafo-azul">PARRAFO 4</p>-->
-
-<!--<p class="parrafo-azul">PARRAFO 5</p>-->
+<h2>Filtrar productos</h2>
+<input type="text" id="buscarProducto" placeholder="Nombre de producto..." />
 
 <table>
     <thead>
-        <tr>
-            <th>NOMBRE</th>
-            <th>PRECIO</th>
-            <th>CANTIDAD</th>
-        </tr>
+    <tr>
+        <th>NOMBRE</th>
+        <th>PRECIO</th>
+        <th>CANTIDAD</th>
+        <th>ACCIONES</th>
+    </tr>
     </thead>
 
-<tbody id="tbodyProductos"></tbody>
+    <tbody id="tbodyProductos"></tbody>
 </table>
+
+<h2><strong>TOTAL:</strong> $<span id="total">0</span></h2>
+
+<form id="formAgregarProducto" style="margin-top: 1rem">
+    <input type="text" id="nombreProducto" placeholder="Nombre" />
+    <input type="text" id="precioProducto" placeholder="Precio" />
+    <input type="text" id="cantidadProducto" placeholder="Cantidad" />
+
+    <button type="submit">Agregar producto</button>
+</form>
 
 <script src="js/main.js"></script>
 </body>
