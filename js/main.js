@@ -1,104 +1,147 @@
 /**
- * ADD EVENT LISTENER
+ * SET ITEM
  */
 
-// const cuadradito = document.getElementById("cuadradito");
+// localStorage.setItem("nombre", "Rodrigo");
+// localStorage.setItem("edad", 20);
+// localStorage.setItem("nombre", "PEPE");
 
-// cuadradito.addEventListener(
-//     "click",
-//     () => {
-//         alert("SE CLICKEO EL CUADRADITO");
+/**
+ * GET ITEM
+ */
+
+// const nombre = localStorage.getItem("nombre");
+//
+// console.log(nombre);
+
+/**
+ * RECORRER STORAGE
+ */
+
+// for(let i = 0; i < localStorage.length; i++) {
+//     const nombreClave = localStorage.key(i);
+//
+//     const dato = localStorage.getItem(nombreClave);
+//
+//     console.log(`Clave: ${nombreClave} - Dato: ${dato}`);
+// }
+
+/**
+ * ELIMINAR DATOS
+ */
+
+// localStorage.removeItem("edad");
+// localStorage.clear();
+
+/**
+ * OTRAS CONSIDERACIONES
+ */
+
+// localStorage.setItem("nombre", "Rodrigo");
+// localStorage.setItem("edad", 20);
+
+// const edad = localStorage.getItem("edad");
+//
+// console.log(edad);
+
+// Guardar array
+// const nombres = ["Pepe", "Juan", "Pedro"];
+// localStorage.setItem("nombres", nombres);
+
+// const nombres = localStorage.getItem("nombres").split(",");
+//
+// console.log(nombres);
+
+/**
+ * GUARDAR OBJETOS
+ */
+
+// class Producto {
+//     constructor(nombre, precio, cantidad) {
+//         this.nombre = nombre;
+//         this.precio = precio;
+//         this.cantidad = cantidad;
 //     }
-// );
+// }
+//
+// const producto = new Producto("Tomates", 20, 3);
+
+// const producto = {
+//     nombre: "Tomates",
+//     precio: 20,
+//     cantidad: 3,
+// };
+
+// const productoJSON = JSON.stringify(producto);
+//
+// localStorage.setItem("producto", productoJSON);
+
+// Obtener JSON de localStorage
+// const productoJSON = localStorage.getItem("producto");
+//
+// const producto = JSON.parse(productoJSON);
+//
+// console.log(producto);
+
+// const json = '{"nombre":"Tomates","precio":20,"cantidad":3}';
+//
+// const parsed = JSON.parse(json);
+//
+// console.log(parsed);
 
 /**
- * EVENTOS DEL MOUSE
+ * ARRAYS DE OBJETOS
  */
 
-// const cuadradito = document.getElementById("cuadradito");
-
-// cuadradito.addEventListener("mousedown", () => {
-//     console.log("SE OPRIMIÓ EL BOTÓN DEL MOUSE");
-// });
-//
-// cuadradito.addEventListener("mouseup", () => {
-//     console.log("SE SOLTÓ EL BOTÓN DEL MOUSE");
-// });
-//
-// cuadradito.addEventListener("mouseover", () => {
-//     console.log("CUANDO EL PUNTERO DEL MOUSE ENTRA AL ELEMENTO");
-// });
-//
-// cuadradito.addEventListener("mouseout", () => {
-//     console.log("CUANDO EL PUNTERO DEL MOUSE SALE DEL ELEMENTO");
-// });
-
-// cuadradito.addEventListener("mousemove", () => {
-//     console.log("PUNTERO SOBRE EL ELEMENTO");
-// });
-
-// cuadradito.addEventListener("click", () => {
-//     console.log("click sobre elemento");
-// });
-
-/**
- * EVENTOS DEL TECLADO
- */
-
-// const inputsito = document.getElementById("inputsito");
-// const selectsito = document.getElementById("selectsito");
-
-// inputsito.addEventListener("keydown", () => {
-//     console.log("SE EJECUTÓ EL KEYDOWN");
-// });
-//
-// inputsito.addEventListener("keyup", () => {
-//     console.log("SE EJECUTÓ EVENTO DE KEYUP");
-// });
-
-// inputsito.addEventListener("change", () => {
-//     console.log(`CHANGE - EL VALOR DEL INPUT ES: ${inputsito.value}`);
-// });
-
-// selectsito.addEventListener("change", () => {
-//     console.log(`EL VALOR DEL SELECT ES: ${selectsito.value}`);
-// });
-
-// inputsito.addEventListener("input", () => {
-//     console.log(`INPUT - EL VALOR DEL INPUT ES: ${inputsito.value}`);
-// });
-
-/**
- * EVENTO DE SUBMIT
- */
-
-// const formsito = document.getElementById("formsito");
-// const parametro1 = document.querySelector('input[name="parametro1"]');
-// const parametro2 = document.querySelector('input[name="parametro2"]');
-//
-// parametro1.addEventListener("keydown", (e) => {
-//     const vocales = ["a", "e", "i", "o", "u"];
-//     const key = e.key;
-//
-//     if(vocales.includes(key)) {
-//         e.preventDefault();
+// class Producto {
+//     constructor(nombre, precio, cantidad) {
+//         this.nombre = nombre;
+//         this.precio = precio;
+//         this.cantidad = cantidad;
 //     }
-// });
+//
+//     obtenerIva() {
+//         return 21;
+//     }
+//
+//     mostrarNombre() {
+//         console.log(`El nombre es: ${this.nombre}`);
+//     }
+// }
 
-// formsito.addEventListener("submit", (e) => {
+/*
+    Guardar en localstorage
+ */
+// const productos = [
+//     new Producto("Tomates", 20, 3),
+//     new Producto("Lechuga", 40, 1),
+//     new Producto("Manzanas", 60, 5),
+// ];
+// const productosJSON = JSON.stringify(productos);
+// localStorage.setItem("productos", productosJSON);
+
+/*
+    Obtener productos de localstorage
+ */
+
+// const productosJSON = localStorage.getItem("productos");
 //
-//     console.log(e);
+// // const productos = JSON.parse(productosJSON);
 //
-//     e.preventDefault();
+// const productos = [];
+// const productosLiterales = JSON.parse(productosJSON);
+// for(const productoLiteral of productosLiterales) {
+//     productos.push(
+//         new Producto(productoLiteral.nombre, productoLiteral.precio, productoLiteral.cantidad)
+//     );
+// }
 //
-//
-//     console.log(`EL VALOR DEL PARAMETRO1 ES: ${parametro1.value}`);
-//     console.log(`EL VALOR DEL PARAMETRO2 ES: ${parametro2.value}`);
-//
-// });
+// for(const producto of productos) {
+//     console.log(producto.obtenerIva());
+// }
 
 /**
- * EJEMPLO EVENTOS
+ * EJEMPLO DE LOCAL STORAGE
  */
 
 // Objetos
@@ -115,12 +158,39 @@ class Producto {
 }
 
 // Funciones
+function guardarEnLS() {
+    const productosJSON = JSON.stringify(productos);
+
+    localStorage.setItem("productos", productosJSON);
+}
+
+function obtenerDeLS() {
+    const productosJSON = localStorage.getItem("productos");
+
+    if(productosJSON === null) {
+        return [
+            new Producto("Tomates", 20, 2),
+            new Producto("Lechuga", 30, 3),
+            new Producto("Yogurt", 50, 4),
+        ];
+    } else {
+        const productos = [];
+        const productosLiterales = JSON.parse(productosJSON);
+
+        for(const productoLiteral of productosLiterales) {
+            productos.push(
+                new Producto(
+                    productoLiteral.nombre, productoLiteral.precio, productoLiteral.cantidad,
+                )
+            )
+        }
+
+        return productos;
+    }
+}
+
 function obtenerTotal() {
     return productos.reduce( (acc, el) => {
-        // Forma 1
-        // return acc + (el.cantidad * el.precio);
-
-        // Forma 2
         return acc + el.obtenerSubtotal();
     }, 0);
 }
@@ -132,7 +202,6 @@ function nombreProductoExiste(nombre) {
 }
 
 function crearProducto(e) {
-
     e.preventDefault();
 
     // Obtener los inputs
@@ -166,6 +235,9 @@ function crearProducto(e) {
     // Agregamos el producto al array
     productos.push(producto);
 
+    // Guardamos en local storage
+    guardarEnLS();
+
     alert("PRODUCTO AGREGADO");
 
     renderizarTablaProductos();
@@ -183,7 +255,10 @@ function clickSpanPrecioProducto(tdPrecio, spanPrecio, producto) {
 
     inputPrecio.addEventListener("change", () => {
         // Cambiamos precio de producto
-        producto.precio = inputPrecio.value;
+        producto.precio = parseFloat(inputPrecio.value);
+
+        // Guardamos en local storage
+        guardarEnLS();
 
         // Volver a renderizar la tabla de productos
         renderizarTablaProductos();
@@ -204,7 +279,10 @@ function clickSpanCantidadProducto(tdPrecio, spanPrecio, producto) {
 
     inputCantidad.addEventListener("change", () => {
         // Cambiamos cantidad de producto
-        producto.cantidad = inputCantidad.value;
+        producto.cantidad = parseInt(inputCantidad.value);
+
+        // Guardamos en local storage
+        guardarEnLS();
 
         // Volver a renderizar la tabla de productos
         renderizarTablaProductos();
@@ -217,8 +295,27 @@ function clickSpanCantidadProducto(tdPrecio, spanPrecio, producto) {
     spanPrecio.className = "ocultar-elemento";
 }
 
-function renderizarTablaProductos() {
+function eliminarProducto(producto) {
+    // Forma 1
+    // productos = productos.filter( (el) => {
+    //     return el.nombre !== producto.nombre;
+    // });
 
+    // Forma 2
+    const indiceElemento = productos.findIndex( (el) => {
+         return el.nombre === producto.nombre;
+    });
+
+    productos.splice(indiceElemento, 1);
+
+    // Guardar en el LS
+    guardarEnLS();
+
+    // Renderizar tabla
+    renderizarTablaProductos();
+}
+
+function renderizarTablaProductos() {
     tbodyProductos.innerHTML = "";
 
     for(const producto of productos) {
@@ -252,8 +349,11 @@ function renderizarTablaProductos() {
         const botonEliminar = document.createElement("button");
         botonEliminar.innerText = "Eliminar";
 
-        // TODO: Eliminar producto
+        botonEliminar.addEventListener("click", () => {
+            eliminarProducto(producto);
+        });
 
+        // Agregar boton al td
         tdAcciones.append(botonEliminar);
 
         // Agregar tds al tr
@@ -271,11 +371,7 @@ const formAgregarProducto = document.getElementById("formAgregarProducto");
 const tbodyProductos = document.getElementById("tbodyProductos");
 const spanTotal = document.getElementById("total");
 
-const productos = [
-    new Producto("Tomates", 20, 2),
-    new Producto("Lechuga", 30, 3),
-    new Producto("Yogurt", 50, 4),
-];
+let productos = obtenerDeLS();
 
 renderizarTablaProductos();
 
