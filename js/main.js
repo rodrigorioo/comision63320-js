@@ -1,147 +1,278 @@
 /**
- * SET ITEM
+ * SUGAR SYNTAX
  */
 
-// localStorage.setItem("nombre", "Rodrigo");
-// localStorage.setItem("edad", 20);
-// localStorage.setItem("nombre", "PEPE");
+// let numero1 = 5;
+// const numero2 = 10;
+
+// Forma vieja
+// numero1 = numero1 + numero2;
+
+// Sugar syntax
+// numero1 += numero2;
+// numero1 -= numero2;
+
+// console.log(numero1);
 
 /**
- * GET ITEM
+ * OPERADOR TERNARIO
  */
 
-// const nombre = localStorage.getItem("nombre");
-//
-// console.log(nombre);
+// const edad = 15;
 
-/**
- * RECORRER STORAGE
- */
-
-// for(let i = 0; i < localStorage.length; i++) {
-//     const nombreClave = localStorage.key(i);
-//
-//     const dato = localStorage.getItem(nombreClave);
-//
-//     console.log(`Clave: ${nombreClave} - Dato: ${dato}`);
+// forma vieja
+// if(edad > 18) {
+//     console.log("Usted es mayor a 18");
+// } else {
+//     console.log("Usted es menor a 18");
 // }
 
-/**
- * ELIMINAR DATOS
+// (edad > 18) ? console.log("Usted es mayor a 18") : console.log("Usted es menor a 18");
+
+/*
+    RETURN IMPLÍCITO
  */
 
-// localStorage.removeItem("edad");
-// localStorage.clear();
-
-/**
- * OTRAS CONSIDERACIONES
- */
-
-// localStorage.setItem("nombre", "Rodrigo");
-// localStorage.setItem("edad", 20);
-
-// const edad = localStorage.getItem("edad");
+// const edad = 20;
 //
-// console.log(edad);
+// let esMayorA18;
 
-// Guardar array
-// const nombres = ["Pepe", "Juan", "Pedro"];
-// localStorage.setItem("nombres", nombres);
+// Forma vieja
+// if(edad > 18) {
+//     esMayorA18 = true;
+// } else {
+//     esMayorA18 = false;
+// }
 
-// const nombres = localStorage.getItem("nombres").split(",");
+// Operador ternario
+// esMayorA18 = (edad > 18) ? true : false;
 //
-// console.log(nombres);
+// console.log(esMayorA18);
 
-/**
- * GUARDAR OBJETOS
+/*
+    OPERADOR TERNARIO ANIDADO
  */
 
+// const edad = 20;
+// const nombre = "Javier";
+//
+// (edad > 18) ? ( (nombre === "Javier") ? console.log("Bienvenido Javier que es mayor a 18") : console.log("El nombre no es Javier") ) : console.log("La edad no es mayor a 18");
+
+/**
+ * OPERADOR LÓGICO AND
+ */
+
+// const nombre = "Fernando";
+
+// Forma vieja
+// if(nombre === "Javier") {
+//     console.log("El nombre es Javier");
+// }
+
+// (nombre === "Javier") && console.log("El nombre es Javier");
+
+/*
+    RETURN IMPLÍCITO
+ */
+
+// let esJavier;
+
+// Forma vieja
+// if(nombre === "Javier") {
+//     esJavier = true;
+// }
+
+// esJavier = (nombre === "Javier") && true;
+//
+// console.log(esJavier);
+
+/**
+ * OPERADOR OR
+ */
+
+// Objetos
 // class Producto {
 //     constructor(nombre, precio, cantidad) {
 //         this.nombre = nombre;
 //         this.precio = precio;
 //         this.cantidad = cantidad;
 //     }
+//
+//     obtenerSubtotal() {
+//         return this.precio * this.cantidad;
+//     }
 // }
 //
-// const producto = new Producto("Tomates", 20, 3);
+// // Funciones
+// function obtenerDeLS() {
+//     // Con operador de OR
+//     return JSON.parse(localStorage.getItem("productos")) ?? [
+//         new Producto("Tomates", 20, 2),
+//         new Producto("Lechuga", 30, 3),
+//         new Producto("Yogurt", 50, 4),
+//     ];
+//
+//     // Forma vieja
+//     // const productosJSON = localStorage.getItem("productos");
+//     //
+//     // if(productosJSON === null) {
+//     //     return [
+//     //         new Producto("Tomates", 20, 2),
+//     //         new Producto("Lechuga", 30, 3),
+//     //         new Producto("Yogurt", 50, 4),
+//     //     ];
+//     // } else {
+//     //     const productos = [];
+//     //     const productosLiterales = JSON.parse(productosJSON);
+//     //
+//     //     for(const productoLiteral of productosLiterales) {
+//     //         productos.push(
+//     //             new Producto(
+//     //                 productoLiteral.nombre, productoLiteral.precio, productoLiteral.cantidad,
+//     //             )
+//     //         )
+//     //     }
+//     //
+//     //     return productos;
+//     // }
+// }
+//
+// obtenerDeLS();
+
+/**
+ * ACCESO CONDICIONAL A UN OBJETO
+ */
+
+// const persona = {
+//     nombre: "Pedro",
+//     apellido: "Perez",
+//     profesion: {
+//         nombre: "Profesor",
+//     }
+// }
+//
+// const persona2 = {
+//     nombre: "Pedro",
+//     apellido: "Sanchez",
+//     profesion: {
+//         nombre: "Profesor",
+//         institucion: {
+//             nombre: "Coderhouse",
+//         }
+//     }
+// }
+//
+// console.log(persona2.profesion?.institucion?.nombre);
+
+/**
+ * DESESTRUCTURACIÓN
+ */
 
 // const producto = {
 //     nombre: "Tomates",
-//     precio: 20,
+//     precio: 50,
 //     cantidad: 3,
-// };
+// }
 
-// const productoJSON = JSON.stringify(producto);
-//
-// localStorage.setItem("producto", productoJSON);
+// Forma vieja
+// const nombre = producto.nombre;
+// const precio = producto.precio;
+// const cantidad = producto.cantidad;
 
-// Obtener JSON de localStorage
-// const productoJSON = localStorage.getItem("producto");
+// const { nombre, precio, cantidad } = producto;
 //
-// const producto = JSON.parse(productoJSON);
-//
-// console.log(producto);
-
-// const json = '{"nombre":"Tomates","precio":20,"cantidad":3}';
-//
-// const parsed = JSON.parse(json);
-//
-// console.log(parsed);
+// console.log(nombre, precio, cantidad);
 
 /**
- * ARRAYS DE OBJETOS
+ * DESESTRUCTURACIÓN DE OBJETOS ANIDADOS
  */
 
-// class Producto {
-//     constructor(nombre, precio, cantidad) {
-//         this.nombre = nombre;
-//         this.precio = precio;
-//         this.cantidad = cantidad;
-//     }
-//
-//     obtenerIva() {
-//         return 21;
-//     }
-//
-//     mostrarNombre() {
-//         console.log(`El nombre es: ${this.nombre}`);
+// const producto = {
+//     nombre: "Tomates",
+//     precio: 50,
+//     cantidad: 3,
+//     categoria: {
+//         nombre_categoria: "Verduras",
+//         posicion: 3,
+//         deposito: {
+//             nombre_deposito: "Deposito 1",
+//         }
 //     }
 // }
-
-/*
-    Guardar en localstorage
- */
-// const productos = [
-//     new Producto("Tomates", 20, 3),
-//     new Producto("Lechuga", 40, 1),
-//     new Producto("Manzanas", 60, 5),
-// ];
-// const productosJSON = JSON.stringify(productos);
-// localStorage.setItem("productos", productosJSON);
-
-/*
-    Obtener productos de localstorage
- */
-
-// const productosJSON = localStorage.getItem("productos");
 //
-// // const productos = JSON.parse(productosJSON);
+// const {
+//     nombre,
+//     precio,
+//     cantidad,
+//     categoria: {
+//         nombre_categoria,
+//         posicion,
+//         deposito: {
+//             nombre_deposito
+//         }
+//     }
+// } = producto;
 //
-// const productos = [];
-// const productosLiterales = JSON.parse(productosJSON);
-// for(const productoLiteral of productosLiterales) {
-//     productos.push(
-//         new Producto(productoLiteral.nombre, productoLiteral.precio, productoLiteral.cantidad)
-//     );
-// }
-//
-// for(const producto of productos) {
-//     console.log(producto.obtenerIva());
-// }
+// console.log(nombre_categoria, posicion, nombre_deposito);
 
 /**
- * EJEMPLO DE LOCAL STORAGE
+ * ALIAS
+ */
+
+// const producto = {
+//     nombre: "Tomates",
+//     precio: 50,
+//     cantidad: 3,
+//     categoria: {
+//         nombre: "Verduras",
+//         posicion: 3,
+//         deposito: {
+//             nombre: "Deposito 1",
+//         }
+//     }
+// }
+//
+// const {
+//     nombre: nombreProducto,
+//     precio,
+//     cantidad,
+//     categoria: {
+//         nombre: nombreCategoria,
+//         deposito: {
+//             nombre: nombreDeposito,
+//         }
+//     }
+// } = producto;
+//
+// console.log(nombreProducto, nombreCategoria, nombreDeposito);
+
+/**
+ * DESESTRUCTURACIÓN EN PARÁMETROS
+ */
+
+// const botonsito = document.getElementById("botonsito");
+//
+// botonsito.addEventListener("click", ({ offsetX, offsetY, target }) => {
+//     console.log(target);
+//     console.log(offsetX, offsetY);
+// });
+
+/**
+ * DESESTRUCTURACIÓN DE ARRAYS
+ */
+
+// const nombres = ["Javier", "Pedro", "Matias"];
+//
+// // const [a, b, c, d] = nombres;
+// //
+// // console.log(a, b, c, d);
+//
+// const [, , c] = nombres;
+//
+// console.log(c);
+
+/**
+ * EJEMPLO DE OPERADORES
  */
 
 // Objetos
@@ -164,29 +295,36 @@ function guardarEnLS() {
     localStorage.setItem("productos", productosJSON);
 }
 
-function obtenerDeLS() {
-    const productosJSON = localStorage.getItem("productos");
-
+function transformarProductosLocalStorage(productosJSON) {
     if(productosJSON === null) {
-        return [
-            new Producto("Tomates", 20, 2),
-            new Producto("Lechuga", 30, 3),
-            new Producto("Yogurt", 50, 4),
-        ];
-    } else {
-        const productos = [];
-        const productosLiterales = JSON.parse(productosJSON);
-
-        for(const productoLiteral of productosLiterales) {
-            productos.push(
-                new Producto(
-                    productoLiteral.nombre, productoLiteral.precio, productoLiteral.cantidad,
-                )
-            )
-        }
-
-        return productos;
+        return null;
     }
+
+    const productos = [];
+
+    for(const productoLiteral of productosJSON) {
+        productos.push(
+            new Producto(
+                productoLiteral.nombre,
+                productoLiteral.precio,
+                productoLiteral.cantidad,
+            )
+        )
+    }
+
+    return productos;
+}
+
+function obtenerDeLS() {
+    return transformarProductosLocalStorage(
+        JSON.parse(
+            localStorage.getItem("productos")
+        )
+    ) || [
+        new Producto("Tomates", 20, 2),
+        new Producto("Lechuga", 30, 3),
+        new Producto("Yogurt", 50, 4),
+    ];
 }
 
 function obtenerTotal() {
@@ -303,7 +441,7 @@ function eliminarProducto(producto) {
 
     // Forma 2
     const indiceElemento = productos.findIndex( (el) => {
-         return el.nombre === producto.nombre;
+        return el.nombre === producto.nombre;
     });
 
     productos.splice(indiceElemento, 1);
