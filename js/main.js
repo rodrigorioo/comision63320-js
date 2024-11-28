@@ -1,278 +1,91 @@
 /**
- * SUGAR SYNTAX
+ * SPREAD DE ARRAYS
  */
 
-// let numero1 = 5;
-// const numero2 = 10;
+// const nombres = ["Pedro", "Martin", "Gabriel"];
 
-// Forma vieja
-// numero1 = numero1 + numero2;
+// console.log(nombres);
+// console.log(...nombres); // console.log("Pedro", "Martin", "Gabriel");
 
-// Sugar syntax
-// numero1 += numero2;
-// numero1 -= numero2;
-
-// console.log(numero1);
-
-/**
- * OPERADOR TERNARIO
- */
-
-// const edad = 15;
-
-// forma vieja
-// if(edad > 18) {
-//     console.log("Usted es mayor a 18");
-// } else {
-//     console.log("Usted es menor a 18");
-// }
-
-// (edad > 18) ? console.log("Usted es mayor a 18") : console.log("Usted es menor a 18");
+// const numeros = [1, 2, 3, 4, 5, 6];
+//
+// console.log(Math.max(...numeros)); // Es lo mismo que es:
+// // console.log(Math.max(1, 2, 3, 4, 5, 6))
+// console.log(Math.min(...numeros))
 
 /*
-    RETURN IMPLÍCITO
+    CONCATENAR ARRAYS
  */
 
-// const edad = 20;
+// const nombres1 = ["Pedro", "Gabriel"];
+// const nombres2 = ["Martin", "Matias"];
 //
-// let esMayorA18;
-
-// Forma vieja
-// if(edad > 18) {
-//     esMayorA18 = true;
-// } else {
-//     esMayorA18 = false;
-// }
-
-// Operador ternario
-// esMayorA18 = (edad > 18) ? true : false;
+// // const concatenacion = nombres1.concat(nombres2);
+// const concatenacion = ["Lautaro", "Federico", ...nombres2];
 //
-// console.log(esMayorA18);
-
-/*
-    OPERADOR TERNARIO ANIDADO
- */
-
-// const edad = 20;
-// const nombre = "Javier";
-//
-// (edad > 18) ? ( (nombre === "Javier") ? console.log("Bienvenido Javier que es mayor a 18") : console.log("El nombre no es Javier") ) : console.log("La edad no es mayor a 18");
+// console.log(concatenacion);
 
 /**
- * OPERADOR LÓGICO AND
+ * SPREAD DE OBJETOS
  */
 
-// const nombre = "Fernando";
-
-// Forma vieja
-// if(nombre === "Javier") {
-//     console.log("El nombre es Javier");
-// }
-
-// (nombre === "Javier") && console.log("El nombre es Javier");
-
-/*
-    RETURN IMPLÍCITO
- */
-
-// let esJavier;
-
-// Forma vieja
-// if(nombre === "Javier") {
-//     esJavier = true;
-// }
-
-// esJavier = (nombre === "Javier") && true;
-//
-// console.log(esJavier);
-
-/**
- * OPERADOR OR
- */
-
-// Objetos
-// class Producto {
-//     constructor(nombre, precio, cantidad) {
-//         this.nombre = nombre;
-//         this.precio = precio;
-//         this.cantidad = cantidad;
-//     }
-//
-//     obtenerSubtotal() {
-//         return this.precio * this.cantidad;
-//     }
-// }
-//
-// // Funciones
-// function obtenerDeLS() {
-//     // Con operador de OR
-//     return JSON.parse(localStorage.getItem("productos")) ?? [
-//         new Producto("Tomates", 20, 2),
-//         new Producto("Lechuga", 30, 3),
-//         new Producto("Yogurt", 50, 4),
-//     ];
-//
-//     // Forma vieja
-//     // const productosJSON = localStorage.getItem("productos");
-//     //
-//     // if(productosJSON === null) {
-//     //     return [
-//     //         new Producto("Tomates", 20, 2),
-//     //         new Producto("Lechuga", 30, 3),
-//     //         new Producto("Yogurt", 50, 4),
-//     //     ];
-//     // } else {
-//     //     const productos = [];
-//     //     const productosLiterales = JSON.parse(productosJSON);
-//     //
-//     //     for(const productoLiteral of productosLiterales) {
-//     //         productos.push(
-//     //             new Producto(
-//     //                 productoLiteral.nombre, productoLiteral.precio, productoLiteral.cantidad,
-//     //             )
-//     //         )
-//     //     }
-//     //
-//     //     return productos;
-//     // }
-// }
-//
-// obtenerDeLS();
-
-/**
- * ACCESO CONDICIONAL A UN OBJETO
- */
-
-// const persona = {
-//     nombre: "Pedro",
-//     apellido: "Perez",
-//     profesion: {
-//         nombre: "Profesor",
-//     }
+// const persona1 = {
+//     nombre: "Federico",
+//     edad: 30,
 // }
 //
 // const persona2 = {
-//     nombre: "Pedro",
-//     apellido: "Sanchez",
-//     profesion: {
-//         nombre: "Profesor",
-//         institucion: {
-//             nombre: "Coderhouse",
-//         }
+//     ...persona1,
+// }
+//
+// console.log(persona2);
+
+// Objetos por referencia
+// const a = {
+//     nombre: "Gabriel",
+//     edad: 20,
+// };
+// // const b = a;
+// const b = {
+//     ...a,
+// }
+// a.nombre = "Federico";
+// b.nombre = "Lautaro";
+//
+// console.log(a);
+// console.log(b);
+
+// Copiar propiedades
+// const persona1 = {
+//     nombre: "Lautaro",
+//     edad: 20,
+// }
+//
+// const persona2 = {
+//     edad: 40,
+//     nombre: "Gabriel",
+//     dni: "123",
+//
+//     ...persona1,
+// }
+//
+// console.log(persona2);
+
+/**
+ * REST PARAMETERS
+ */
+
+// function imprimirNombres(saludo, ...nombres) {
+//     console.log(nombres);
+//     for(const nombre of nombres) {
+//         console.log(`${saludo} ${nombre}`);
 //     }
 // }
 //
-// console.log(persona2.profesion?.institucion?.nombre);
+// imprimirNombres("Hola!", "Martin", "Lautaro", "Federico", "Gabriel", "Matias");
 
 /**
- * DESESTRUCTURACIÓN
- */
-
-// const producto = {
-//     nombre: "Tomates",
-//     precio: 50,
-//     cantidad: 3,
-// }
-
-// Forma vieja
-// const nombre = producto.nombre;
-// const precio = producto.precio;
-// const cantidad = producto.cantidad;
-
-// const { nombre, precio, cantidad } = producto;
-//
-// console.log(nombre, precio, cantidad);
-
-/**
- * DESESTRUCTURACIÓN DE OBJETOS ANIDADOS
- */
-
-// const producto = {
-//     nombre: "Tomates",
-//     precio: 50,
-//     cantidad: 3,
-//     categoria: {
-//         nombre_categoria: "Verduras",
-//         posicion: 3,
-//         deposito: {
-//             nombre_deposito: "Deposito 1",
-//         }
-//     }
-// }
-//
-// const {
-//     nombre,
-//     precio,
-//     cantidad,
-//     categoria: {
-//         nombre_categoria,
-//         posicion,
-//         deposito: {
-//             nombre_deposito
-//         }
-//     }
-// } = producto;
-//
-// console.log(nombre_categoria, posicion, nombre_deposito);
-
-/**
- * ALIAS
- */
-
-// const producto = {
-//     nombre: "Tomates",
-//     precio: 50,
-//     cantidad: 3,
-//     categoria: {
-//         nombre: "Verduras",
-//         posicion: 3,
-//         deposito: {
-//             nombre: "Deposito 1",
-//         }
-//     }
-// }
-//
-// const {
-//     nombre: nombreProducto,
-//     precio,
-//     cantidad,
-//     categoria: {
-//         nombre: nombreCategoria,
-//         deposito: {
-//             nombre: nombreDeposito,
-//         }
-//     }
-// } = producto;
-//
-// console.log(nombreProducto, nombreCategoria, nombreDeposito);
-
-/**
- * DESESTRUCTURACIÓN EN PARÁMETROS
- */
-
-// const botonsito = document.getElementById("botonsito");
-//
-// botonsito.addEventListener("click", ({ offsetX, offsetY, target }) => {
-//     console.log(target);
-//     console.log(offsetX, offsetY);
-// });
-
-/**
- * DESESTRUCTURACIÓN DE ARRAYS
- */
-
-// const nombres = ["Javier", "Pedro", "Matias"];
-//
-// // const [a, b, c, d] = nombres;
-// //
-// // console.log(a, b, c, d);
-//
-// const [, , c] = nombres;
-//
-// console.log(c);
-
-/**
- * EJEMPLO DE OPERADORES
+ * EJEMPLO DE PRE ENTREGA
  */
 
 // Objetos
@@ -281,14 +94,77 @@ class Producto {
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
+        this.iva = 21;
+
+        this.element = this.crearTr();
     }
 
     obtenerSubtotal() {
         return this.precio * this.cantidad;
     }
+
+    obtenerIva() {
+        return this.obtenerSubtotal() * (this.iva / 100);
+    }
+
+    crearTr() {
+        // Creamos tr
+        const tr = document.createElement("tr");
+
+        // Creamos tds
+        const tdNombre = document.createElement("td");
+        const tdPrecio = document.createElement("td");
+        const tdCantidad = document.createElement("td");
+        const tdAcciones = document.createElement("td");
+
+        tdNombre.innerText = `${this.nombre}`;
+
+        const spanPrecio = document.createElement("span");
+        spanPrecio.innerText = `$${this.precio}`;
+        spanPrecio.addEventListener("click", () => {
+            clickSpanPrecioProducto(tdPrecio, spanPrecio, this);
+        });
+
+        const spanCantidad = document.createElement("span");
+        spanCantidad.innerText = `${this.cantidad}`;
+        spanCantidad.addEventListener("click", () => {
+            clickSpanCantidadProducto(tdCantidad, spanCantidad, this);
+        });
+
+        tdPrecio.append(spanPrecio);
+        tdCantidad.append(spanCantidad);
+
+        // TD acciones
+        const botonEliminar = document.createElement("button");
+        botonEliminar.innerText = "Eliminar";
+
+        botonEliminar.addEventListener("click", () => {
+            eliminarProducto(this);
+        });
+
+        // Agregar boton al td
+        tdAcciones.append(botonEliminar);
+
+        // Agregar tds al tr
+        tr.append(tdNombre, tdPrecio, tdCantidad, tdAcciones);
+
+        return tr;
+    }
 }
 
 // Funciones
+function buscarProducto() {
+    const value = inputBuscarProducto.value;
+
+    // Filtrar los productos
+    productosFiltrados = productos.filter( (el) => {
+        return el.nombre.toLowerCase().includes(value.toLowerCase());
+    });
+
+    // Renderizar tabla
+    renderizarTablaProductos();
+}
+
 function guardarEnLS() {
     const productosJSON = JSON.stringify(productos);
 
@@ -327,9 +203,21 @@ function obtenerDeLS() {
     ];
 }
 
+function obtenerSubtotal() {
+    return productosFiltrados.reduce( (acc, el) => {
+        return acc + el.obtenerSubtotal();
+    }, 0);
+}
+
 function obtenerTotal() {
     return productos.reduce( (acc, el) => {
-        return acc + el.obtenerSubtotal();
+        return acc + el.obtenerSubtotal() + el.obtenerIva();
+    }, 0);
+}
+
+function obtenerIva() {
+    return productosFiltrados.reduce( (acc, el) => {
+        return acc + el.obtenerIva();
     }, 0);
 }
 
@@ -383,6 +271,8 @@ function crearProducto(e) {
 
 function renderizarTotal() {
     spanTotal.innerText = obtenerTotal();
+    spanSubtotal.innerText = obtenerSubtotal();
+    spanIva.innerText = obtenerIva();
 }
 
 function clickSpanPrecioProducto(tdPrecio, spanPrecio, producto) {
@@ -456,46 +346,9 @@ function eliminarProducto(producto) {
 function renderizarTablaProductos() {
     tbodyProductos.innerHTML = "";
 
-    for(const producto of productos) {
-        // Creamos tr
-        const tr = document.createElement("tr");
-
-        // Creamos tds
-        const tdNombre = document.createElement("td");
-        const tdPrecio = document.createElement("td");
-        const tdCantidad = document.createElement("td");
-        const tdAcciones = document.createElement("td");
-
-        tdNombre.innerText = `${producto.nombre}`;
-
-        const spanPrecio = document.createElement("span");
-        spanPrecio.innerText = `$${producto.precio}`;
-        spanPrecio.addEventListener("click", () => {
-            clickSpanPrecioProducto(tdPrecio, spanPrecio, producto);
-        });
-
-        const spanCantidad = document.createElement("span");
-        spanCantidad.innerText = `${producto.cantidad}`;
-        spanCantidad.addEventListener("click", () => {
-            clickSpanCantidadProducto(tdCantidad, spanCantidad, producto);
-        });
-
-        tdPrecio.append(spanPrecio);
-        tdCantidad.append(spanCantidad);
-
-        // TD acciones
-        const botonEliminar = document.createElement("button");
-        botonEliminar.innerText = "Eliminar";
-
-        botonEliminar.addEventListener("click", () => {
-            eliminarProducto(producto);
-        });
-
-        // Agregar boton al td
-        tdAcciones.append(botonEliminar);
-
-        // Agregar tds al tr
-        tr.append(tdNombre, tdPrecio, tdCantidad, tdAcciones);
+    for(const producto of productosFiltrados) {
+        // Obtener tr
+        const tr = producto.element;
 
         tbodyProductos.append(tr);
     }
@@ -508,9 +361,15 @@ function renderizarTablaProductos() {
 const formAgregarProducto = document.getElementById("formAgregarProducto");
 const tbodyProductos = document.getElementById("tbodyProductos");
 const spanTotal = document.getElementById("total");
+const spanSubtotal = document.getElementById("subtotal");
+const spanIva = document.getElementById("iva");
+const inputBuscarProducto = document.getElementById("buscarProducto");
 
 let productos = obtenerDeLS();
+let productosFiltrados = [...productos];
 
 renderizarTablaProductos();
 
+// Eventos
 formAgregarProducto.addEventListener("submit", crearProducto);
+inputBuscarProducto.addEventListener("input", buscarProducto);
