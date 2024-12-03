@@ -1,375 +1,185 @@
 /**
- * SPREAD DE ARRAYS
+ * SWEET ALERT
  */
 
-// const nombres = ["Pedro", "Martin", "Gabriel"];
-
-// console.log(nombres);
-// console.log(...nombres); // console.log("Pedro", "Martin", "Gabriel");
-
-// const numeros = [1, 2, 3, 4, 5, 6];
+// Swal.fire({
+//     title: 'Eliminar',
+//     text: 'Está seguro que quiere eliminar este elemento?',
+//     icon: 'error',
+//     confirmButtonText: 'Sí',
+//     showCancelButton: true,
+//     cancelButtonText: "No",
+// }).then( (result) => {
+//     if(result.isConfirmed) {
+//         // Elimine el elemento...
 //
-// console.log(Math.max(...numeros)); // Es lo mismo que es:
-// // console.log(Math.max(1, 2, 3, 4, 5, 6))
-// console.log(Math.min(...numeros))
+//         Swal.fire({
+//             title: 'Éxito!',
+//             text: 'Se eliminó el elemento',
+//             icon: 'success',
+//             confirmButtonText: 'Ok',
+//         });
+//     } else {
+//         Swal.fire({
+//             title: 'No se eliminó',
+//             text: 'El elemento no se eliminó',
+//             icon: 'warning',
+//             confirmButtonText: 'Ok',
+//         })
+//     }
+// })
+
+/**
+ * TOASTIFY
+ */
+
+// Toastify({
+//     text: "This is a toast",
+//     duration: 1000,
+//     newWindow: true,
+//     close: true,
+//     gravity: "top", // `top` or `bottom`
+//     position: "right", // `left`, `center` or `right`
+//     stopOnFocus: true, // Prevents dismissing of toast on hover
+//     // style: {
+//     //     background: "linear-gradient(to right, #00b09b, #96c93d)",
+//     // },
+//     onClick: function(){
+//         Toastify({
+//             text: "Notificacion",
+//             duration: 2000,
+//             newWindow: true,
+//             close: true,
+//             gravity: "bottom", // `top` or `bottom`
+//             position: "left", // `left`, `center` or `right`
+//             stopOnFocus: true, // Prevents dismissing of
+//         }).showToast();
+//
+//     } // Callback after click
+// }).showToast();
+
+/**
+ * LUXON
+ */
+
+const DateTime = luxon.DateTime;
+
+// Instanciar una fecha
+// const fecha = DateTime.fromObject({
+//     day: 20, month: 11, year: 2023, hour: 10, minutes: 30,
+// });
+//
+// console.log(fecha.toString());
+
+// Parsear de ISO
+// const fechaISO = '2023-11-20T10:30:00.000-03:00';
+//
+// const fecha = DateTime.fromISO(fechaISO);
+// console.log(fecha);
+
+// Instanciar la fecha actual
+// const fechaActual = DateTime.now();
+// console.log(fechaActual);
+
+// console.log(fechaActual.minute);
+
+// Cantidad de días del mes
+// const fechaActual = DateTime.now();
+// console.log(fechaActual.daysInMonth);
+
+// const fechaJunio = DateTime.fromObject(
+//     {day: 5, month: 6, year: 2023},
+// );
+// console.log(fechaJunio.zoneName);
 
 /*
-    CONCATENAR ARRAYS
+    FORMATEAR FECHAS
  */
 
-// const nombres1 = ["Pedro", "Gabriel"];
-// const nombres2 = ["Martin", "Matias"];
-//
-// // const concatenacion = nombres1.concat(nombres2);
-// const concatenacion = ["Lautaro", "Federico", ...nombres2];
-//
-// console.log(concatenacion);
+// const fechaJunio = DateTime.fromObject(
+//     {day: 5, month: 6, year: 2023},
+// );
 
-/**
- * SPREAD DE OBJETOS
+// console.log(
+//     fechaJunio.setLocale('es').toLocaleString(DateTime.DATE_FULL)
+// )
+
+// console.log(
+//     fechaJunio.setLocale('es').toLocaleString(DateTime.DATE_HUGE)
+// )
+
+// console.log(
+//     fechaJunio.toFormat('dd - LL - yyyy hh:mm:ss')
+// )
+
+/*
+    TRANSFORMACION
  */
 
-// const persona1 = {
-//     nombre: "Federico",
-//     edad: 30,
-// }
-//
-// const persona2 = {
-//     ...persona1,
-// }
-//
-// console.log(persona2);
+// const fechaJunio = DateTime.fromObject(
+//     {day: 5, month: 6, year: 2023, hour: 10},
+// );
 
-// Objetos por referencia
-// const a = {
-//     nombre: "Gabriel",
-//     edad: 20,
-// };
-// // const b = a;
-// const b = {
-//     ...a,
-// }
-// a.nombre = "Federico";
-// b.nombre = "Lautaro";
-//
-// console.log(a);
-// console.log(b);
+// Agregan datos
+// const nuevaFecha = fechaJunio.plus({
+//     hours: 14,
+//     months: 8,
+//     days: 30,
+// });
 
-// Copiar propiedades
-// const persona1 = {
-//     nombre: "Lautaro",
-//     edad: 20,
-// }
+// Restar datos
+// const nuevaFecha = fechaJunio.minus({
+//     hours: 14,
+//     months: 14,
+// });
 //
-// const persona2 = {
-//     edad: 40,
-//     nombre: "Gabriel",
-//     dni: "123",
-//
-//     ...persona1,
-// }
-//
-// console.log(persona2);
+// console.log(fechaJunio.toFormat('dd/LL/yyyy hh:mm:ss'));
+// console.log(nuevaFecha.toFormat('dd/LL/yyyy hh:mm:ss'));
 
-/**
- * REST PARAMETERS
+// const nuevaFecha = fechaJunio.set({
+//     day: 10,
+//     year: 2024,
+// });
+//
+// console.log(fechaJunio.toFormat('dd/LL/yyyy hh:mm:ss'));
+// console.log(nuevaFecha.toFormat('dd/LL/yyyy hh:mm:ss'));
+
+/*
+    DURATION
  */
 
-// function imprimirNombres(saludo, ...nombres) {
-//     console.log(nombres);
-//     for(const nombre of nombres) {
-//         console.log(`${saludo} ${nombre}`);
-//     }
-// }
+// const Duration = luxon.Duration;
 //
-// imprimirNombres("Hola!", "Martin", "Lautaro", "Federico", "Gabriel", "Matias");
+// const tiempo = Duration.fromObject({
+//     hours: 22,
+//     minutes: 30,
+// });
+//
+// const nuevoTiempo = tiempo.plus({
+//     hours: 4,
+//     minutes: 60,
+// });
+//
+// console.log(tiempo.toFormat('hh:mm:ss'))
+// console.log(nuevoTiempo.toFormat('hh:mm:ss'))
 
-/**
- * EJEMPLO DE PRE ENTREGA
+// console.log(
+//     tiempo.toString()
+// )
+
+/*
+    INTERVAL
  */
 
-// Objetos
-class Producto {
-    constructor(nombre, precio, cantidad) {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.cantidad = cantidad;
-        this.iva = 21;
+const Interval = luxon.Interval;
 
-        this.element = this.crearTr();
-    }
+const fecha1 = DateTime.fromObject({
+    day: 10, month: 12, year: 2024,
+})
+const fecha2 = DateTime.fromObject({
+    day: 5, month: 11, year: 2024,
+});
 
-    obtenerSubtotal() {
-        return this.precio * this.cantidad;
-    }
+const interval = Interval.fromDateTimes(fecha2, fecha1);
 
-    obtenerIva() {
-        return this.obtenerSubtotal() * (this.iva / 100);
-    }
-
-    crearTr() {
-        // Creamos tr
-        const tr = document.createElement("tr");
-
-        // Creamos tds
-        const tdNombre = document.createElement("td");
-        const tdPrecio = document.createElement("td");
-        const tdCantidad = document.createElement("td");
-        const tdAcciones = document.createElement("td");
-
-        tdNombre.innerText = `${this.nombre}`;
-
-        const spanPrecio = document.createElement("span");
-        spanPrecio.innerText = `$${this.precio}`;
-        spanPrecio.addEventListener("click", () => {
-            clickSpanPrecioProducto(tdPrecio, spanPrecio, this);
-        });
-
-        const spanCantidad = document.createElement("span");
-        spanCantidad.innerText = `${this.cantidad}`;
-        spanCantidad.addEventListener("click", () => {
-            clickSpanCantidadProducto(tdCantidad, spanCantidad, this);
-        });
-
-        tdPrecio.append(spanPrecio);
-        tdCantidad.append(spanCantidad);
-
-        // TD acciones
-        const botonEliminar = document.createElement("button");
-        botonEliminar.innerText = "Eliminar";
-
-        botonEliminar.addEventListener("click", () => {
-            eliminarProducto(this);
-        });
-
-        // Agregar boton al td
-        tdAcciones.append(botonEliminar);
-
-        // Agregar tds al tr
-        tr.append(tdNombre, tdPrecio, tdCantidad, tdAcciones);
-
-        return tr;
-    }
-}
-
-// Funciones
-function buscarProducto() {
-    const value = inputBuscarProducto.value;
-
-    // Filtrar los productos
-    productosFiltrados = productos.filter( (el) => {
-        return el.nombre.toLowerCase().includes(value.toLowerCase());
-    });
-
-    // Renderizar tabla
-    renderizarTablaProductos();
-}
-
-function guardarEnLS() {
-    const productosJSON = JSON.stringify(productos);
-
-    localStorage.setItem("productos", productosJSON);
-}
-
-function transformarProductosLocalStorage(productosJSON) {
-    if(productosJSON === null) {
-        return null;
-    }
-
-    const productos = [];
-
-    for(const productoLiteral of productosJSON) {
-        productos.push(
-            new Producto(
-                productoLiteral.nombre,
-                productoLiteral.precio,
-                productoLiteral.cantidad,
-            )
-        )
-    }
-
-    return productos;
-}
-
-function obtenerDeLS() {
-    return transformarProductosLocalStorage(
-        JSON.parse(
-            localStorage.getItem("productos")
-        )
-    ) || [
-        new Producto("Tomates", 20, 2),
-        new Producto("Lechuga", 30, 3),
-        new Producto("Yogurt", 50, 4),
-    ];
-}
-
-function obtenerSubtotal() {
-    return productosFiltrados.reduce( (acc, el) => {
-        return acc + el.obtenerSubtotal();
-    }, 0);
-}
-
-function obtenerTotal() {
-    return productos.reduce( (acc, el) => {
-        return acc + el.obtenerSubtotal() + el.obtenerIva();
-    }, 0);
-}
-
-function obtenerIva() {
-    return productosFiltrados.reduce( (acc, el) => {
-        return acc + el.obtenerIva();
-    }, 0);
-}
-
-function nombreProductoExiste(nombre) {
-    return productos.some( (el) => {
-        return el.nombre.toLowerCase() === nombre.toLowerCase();
-    });
-}
-
-function crearProducto(e) {
-    e.preventDefault();
-
-    // Obtener los inputs
-    const inputNombreProducto = document.getElementById("nombreProducto");
-    const inputPrecioProducto = document.getElementById("precioProducto");
-    const inputCantidadProducto = document.getElementById("cantidadProducto");
-
-    // Pedimos los datos del producto
-    const nombreProducto = inputNombreProducto.value;
-    const precioProducto = parseFloat(inputPrecioProducto.value);
-    const cantidad = parseInt(inputCantidadProducto.value);
-
-    // Limpiamos inputs
-    inputNombreProducto.value = "";
-    inputCantidadProducto.value = "";
-    inputPrecioProducto.value = "";
-
-    // Chequeamos si el nombre del producto no existe
-    if(nombreProductoExiste(nombreProducto)) {
-        alert("PRODUCTO YA EXISTE");
-        return;
-    }
-
-    // Creamos el producto
-    const producto = new Producto(
-        nombreProducto,
-        precioProducto,
-        cantidad,
-    );
-
-    // Agregamos el producto al array
-    productos.push(producto);
-
-    // Guardamos en local storage
-    guardarEnLS();
-
-    alert("PRODUCTO AGREGADO");
-
-    renderizarTablaProductos();
-}
-
-function renderizarTotal() {
-    spanTotal.innerText = obtenerTotal();
-    spanSubtotal.innerText = obtenerSubtotal();
-    spanIva.innerText = obtenerIva();
-}
-
-function clickSpanPrecioProducto(tdPrecio, spanPrecio, producto) {
-    // Crear input
-    const inputPrecio = document.createElement("input");
-    inputPrecio.type = "text";
-    inputPrecio.value = producto.precio;
-
-    inputPrecio.addEventListener("change", () => {
-        // Cambiamos precio de producto
-        producto.precio = parseFloat(inputPrecio.value);
-
-        // Guardamos en local storage
-        guardarEnLS();
-
-        // Volver a renderizar la tabla de productos
-        renderizarTablaProductos();
-    });
-
-    // Agregar input al td
-    tdPrecio.append(inputPrecio);
-
-    // Ocultar span
-    spanPrecio.className = "ocultar-elemento";
-}
-
-function clickSpanCantidadProducto(tdPrecio, spanPrecio, producto) {
-    // Crear input
-    const inputCantidad = document.createElement("input");
-    inputCantidad.type = "text";
-    inputCantidad.value = producto.cantidad;
-
-    inputCantidad.addEventListener("change", () => {
-        // Cambiamos cantidad de producto
-        producto.cantidad = parseInt(inputCantidad.value);
-
-        // Guardamos en local storage
-        guardarEnLS();
-
-        // Volver a renderizar la tabla de productos
-        renderizarTablaProductos();
-    });
-
-    // Agregar input al td
-    tdPrecio.append(inputCantidad);
-
-    // Ocultar span
-    spanPrecio.className = "ocultar-elemento";
-}
-
-function eliminarProducto(producto) {
-    // Forma 1
-    // productos = productos.filter( (el) => {
-    //     return el.nombre !== producto.nombre;
-    // });
-
-    // Forma 2
-    const indiceElemento = productos.findIndex( (el) => {
-        return el.nombre === producto.nombre;
-    });
-
-    productos.splice(indiceElemento, 1);
-
-    // Guardar en el LS
-    guardarEnLS();
-
-    // Renderizar tabla
-    renderizarTablaProductos();
-}
-
-function renderizarTablaProductos() {
-    tbodyProductos.innerHTML = "";
-
-    for(const producto of productosFiltrados) {
-        // Obtener tr
-        const tr = producto.element;
-
-        tbodyProductos.append(tr);
-    }
-
-    // Renderizamos el total
-    renderizarTotal();
-}
-
-// Inicio del programa
-const formAgregarProducto = document.getElementById("formAgregarProducto");
-const tbodyProductos = document.getElementById("tbodyProductos");
-const spanTotal = document.getElementById("total");
-const spanSubtotal = document.getElementById("subtotal");
-const spanIva = document.getElementById("iva");
-const inputBuscarProducto = document.getElementById("buscarProducto");
-
-let productos = obtenerDeLS();
-let productosFiltrados = [...productos];
-
-renderizarTablaProductos();
-
-// Eventos
-formAgregarProducto.addEventListener("submit", crearProducto);
-inputBuscarProducto.addEventListener("input", buscarProducto);
+console.log(interval.length('days'))
