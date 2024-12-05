@@ -1,185 +1,196 @@
-/**
- * SWEET ALERT
- */
-
-// Swal.fire({
-//     title: 'Eliminar',
-//     text: 'Está seguro que quiere eliminar este elemento?',
-//     icon: 'error',
-//     confirmButtonText: 'Sí',
-//     showCancelButton: true,
-//     cancelButtonText: "No",
-// }).then( (result) => {
-//     if(result.isConfirmed) {
-//         // Elimine el elemento...
+// const saludo = "Hola";
+// const numero1 = 10;
+// const numero2 = 20;
 //
-//         Swal.fire({
-//             title: 'Éxito!',
-//             text: 'Se eliminó el elemento',
-//             icon: 'success',
-//             confirmButtonText: 'Ok',
-//         });
-//     } else {
-//         Swal.fire({
-//             title: 'No se eliminó',
-//             text: 'El elemento no se eliminó',
-//             icon: 'warning',
-//             confirmButtonText: 'Ok',
-//         })
-//     }
-// })
+// for(let i = 0; i < 10000000; i++) {
+//
+// }
+//
+// const resultado = numero1 + numero2;
+//
+// console.log(saludo);
+// console.log(resultado);
 
 /**
- * TOASTIFY
+ * SET TIMEOUT
  */
 
-// Toastify({
-//     text: "This is a toast",
-//     duration: 1000,
-//     newWindow: true,
-//     close: true,
-//     gravity: "top", // `top` or `bottom`
-//     position: "right", // `left`, `center` or `right`
-//     stopOnFocus: true, // Prevents dismissing of toast on hover
-//     // style: {
-//     //     background: "linear-gradient(to right, #00b09b, #96c93d)",
-//     // },
-//     onClick: function(){
-//         Toastify({
-//             text: "Notificacion",
-//             duration: 2000,
-//             newWindow: true,
-//             close: true,
-//             gravity: "bottom", // `top` or `bottom`
-//             position: "left", // `left`, `center` or `right`
-//             stopOnFocus: true, // Prevents dismissing of
-//         }).showToast();
+// setTimeout( () => {
+//     console.log("Se ejecutó el timeout");
+// }, 1000);
 //
-//     } // Callback after click
-// }).showToast();
+// console.log("Hola");
+//
+// setTimeout( () => {
+//     console.log("Se ejecutó el timeout 2");
+// }, 2000);
+//
+// console.log("Hola 2");
+
+// EJEMPLO 2
+
+// for (let letra of "hola") {
+//     setTimeout( () => {
+//         console.log(letra);
+//     }, 1000);
+// }
+//
+// for (let letra of "mundo") {
+//     setTimeout( () => {
+//         console.log(letra);
+//     }, 2000);
+// }
+
+// EJEMPLO 3
+
+// console.log("HOLA");
+//
+// setTimeout( () => {
+//     console.log("CÓMO ESTÁS?");
+// }, 0);
+//
+// console.log("MI NOMBRE ES RODRIGO");
+//
+// console.log("AAAA");
+//
+// console.log("BBBBBB");
 
 /**
- * LUXON
+ * CALL STACK
  */
 
-const DateTime = luxon.DateTime;
-
-// Instanciar una fecha
-// const fecha = DateTime.fromObject({
-//     day: 20, month: 11, year: 2023, hour: 10, minutes: 30,
-// });
+// function funcion3() {
 //
-// console.log(fecha.toString());
-
-// Parsear de ISO
-// const fechaISO = '2023-11-20T10:30:00.000-03:00';
+//     debugger;
 //
-// const fecha = DateTime.fromISO(fechaISO);
-// console.log(fecha);
+//     return "HOLA";
+// }
+//
+// function funcion2() {
+//
+//     debugger;
+//
+//     const var2 = funcion3();
+//
+//     debugger;
+//
+//     return var2 + " COMO ESTAS";
+// }
+//
+// function funcion1() {
+//     debugger;
+//
+//     const var1 = funcion2();
+//
+//     debugger;
+//
+//     return var1 + " MI NOMBRE ES RODRIGO";
+// }
+//
+// const saludo = funcion1();
+//
+// console.log(saludo);
 
-// Instanciar la fecha actual
-// const fechaActual = DateTime.now();
-// console.log(fechaActual);
-
-// console.log(fechaActual.minute);
-
-// Cantidad de días del mes
-// const fechaActual = DateTime.now();
-// console.log(fechaActual.daysInMonth);
-
-// const fechaJunio = DateTime.fromObject(
-//     {day: 5, month: 6, year: 2023},
-// );
-// console.log(fechaJunio.zoneName);
-
-/*
-    FORMATEAR FECHAS
+/**
+ * SET INTERVAL
  */
 
-// const fechaJunio = DateTime.fromObject(
-//     {day: 5, month: 6, year: 2023},
-// );
+// const interval = setInterval( () => {
+//     console.log("HOLA");
+// }, 1000);
 
-// console.log(
-//     fechaJunio.setLocale('es').toLocaleString(DateTime.DATE_FULL)
-// )
+// let timeout = setTimeout( () => {
+//
+//     // clearInterval(interval);
+//
+//     console.log("HOLA");
+//
+// }, 2000);
+//
+// setTimeout( () => {
+//     clearTimeout(timeout);
+// }, 1000);
 
-// console.log(
-//     fechaJunio.setLocale('es').toLocaleString(DateTime.DATE_HUGE)
-// )
-
-// console.log(
-//     fechaJunio.toFormat('dd - LL - yyyy hh:mm:ss')
-// )
-
-/*
-    TRANSFORMACION
+/**
+ * PROMESAS
  */
 
-// const fechaJunio = DateTime.fromObject(
-//     {day: 5, month: 6, year: 2023, hour: 10},
-// );
-
-// Agregan datos
-// const nuevaFecha = fechaJunio.plus({
-//     hours: 14,
-//     months: 8,
-//     days: 30,
-// });
-
-// Restar datos
-// const nuevaFecha = fechaJunio.minus({
-//     hours: 14,
-//     months: 14,
-// });
+// const numero = 5;
 //
-// console.log(fechaJunio.toFormat('dd/LL/yyyy hh:mm:ss'));
-// console.log(nuevaFecha.toFormat('dd/LL/yyyy hh:mm:ss'));
-
-// const nuevaFecha = fechaJunio.set({
-//     day: 10,
-//     year: 2024,
+// const promesa = new Promise( (resolve, reject) => {
+//
+//     // Sincrónico
+//     // if(numero === 5) {
+//     //     resolve();
+//     // } else {
+//     //     reject();
+//     // }
+//
+//     // Asincrónico
+//     setTimeout( () => {
+//         if(numero === 5) {
+//             resolve();
+//         } else {
+//             reject();
+//         }
+//     }, 1000);
 // });
 //
-// console.log(fechaJunio.toFormat('dd/LL/yyyy hh:mm:ss'));
-// console.log(nuevaFecha.toFormat('dd/LL/yyyy hh:mm:ss'));
+// promesa
+//     .then( () => {
+//         console.log("Se resolvió la promesa");
+//     })
+//     .catch( () => {
+//         console.log("Se rechazó la promesa");
+//     })
+//     .finally( () => {
+//         console.log("FINALIZÓ");
+//     });
 
-/*
-    DURATION
- */
+// EJEMPLO 2
 
-// const Duration = luxon.Duration;
+// const promesa = new Promise( (resolve, reject) => {
 //
-// const tiempo = Duration.fromObject({
-//     hours: 22,
-//     minutes: 30,
+//     const productos = [
+//         {
+//             id: 1,
+//             nombre: "Papa",
+//         },
+//         {
+//             id: 2,
+//             nombre: "Tomates",
+//         },
+//         // ...
+//     ];
+//
+//     setTimeout( () => {
+//         const random = Math.round(Math.random() * 10);
+//
+//         if(random >= 5) {
+//             resolve(productos);
+//         } else {
+//             reject("Error al obtener los productos");
+//         }
+//
+//     }, 1000);
 // });
 //
-// const nuevoTiempo = tiempo.plus({
-//     hours: 4,
-//     minutes: 60,
-// });
+// promesa
+//     .then( (productosRecibidos) => {
+//         console.log("Productos: ");
+//         console.log(productosRecibidos);
+//     })
+//     .catch( (mensajeDeError) => {
+//         console.log("Error: " + mensajeDeError);
+//     })
+//     .finally( () => {
+//         console.log("Se terminaron de obtener los productos");
+//     })
+// ;
 //
-// console.log(tiempo.toFormat('hh:mm:ss'))
-// console.log(nuevoTiempo.toFormat('hh:mm:ss'))
+// console.log("HOLA");
+//
+// for(let i = 0; i < 500; i++) {
+//     console.log(i);
+// }
 
-// console.log(
-//     tiempo.toString()
-// )
-
-/*
-    INTERVAL
- */
-
-const Interval = luxon.Interval;
-
-const fecha1 = DateTime.fromObject({
-    day: 10, month: 12, year: 2024,
-})
-const fecha2 = DateTime.fromObject({
-    day: 5, month: 11, year: 2024,
-});
-
-const interval = Interval.fromDateTimes(fecha2, fecha1);
-
-console.log(interval.length('days'))
