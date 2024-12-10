@@ -1,196 +1,145 @@
-// const saludo = "Hola";
-// const numero1 = 10;
-// const numero2 = 20;
+// const peticion = fetch("https://rickandmortyapi.com/api/character");
 //
-// for(let i = 0; i < 10000000; i++) {
+// function renderizarPersonajes(personajes) {
+//     const container = document.getElementById("container");
 //
+//     for(const personaje of personajes) {
+//         container.innerHTML += `
+//             <div class="personaje">
+//                 <h3>${personaje.name}</h3>
+//                 <h5>${personaje.species}</h5>
+//             </div>
+//         `;
+//     }
 // }
 //
-// const resultado = numero1 + numero2;
+// let siguientePagina = "";
 //
-// console.log(saludo);
-// console.log(resultado);
-
-/**
- * SET TIMEOUT
- */
-
-// setTimeout( () => {
-//     console.log("Se ejecutó el timeout");
-// }, 1000);
+// const siguiente = document.getElementById("siguiente");
 //
-// console.log("Hola");
-//
-// setTimeout( () => {
-//     console.log("Se ejecutó el timeout 2");
-// }, 2000);
-//
-// console.log("Hola 2");
-
-// EJEMPLO 2
-
-// for (let letra of "hola") {
-//     setTimeout( () => {
-//         console.log(letra);
-//     }, 1000);
-// }
-//
-// for (let letra of "mundo") {
-//     setTimeout( () => {
-//         console.log(letra);
-//     }, 2000);
-// }
-
-// EJEMPLO 3
-
-// console.log("HOLA");
-//
-// setTimeout( () => {
-//     console.log("CÓMO ESTÁS?");
-// }, 0);
-//
-// console.log("MI NOMBRE ES RODRIGO");
-//
-// console.log("AAAA");
-//
-// console.log("BBBBBB");
-
-/**
- * CALL STACK
- */
-
-// function funcion3() {
-//
-//     debugger;
-//
-//     return "HOLA";
-// }
-//
-// function funcion2() {
-//
-//     debugger;
-//
-//     const var2 = funcion3();
-//
-//     debugger;
-//
-//     return var2 + " COMO ESTAS";
-// }
-//
-// function funcion1() {
-//     debugger;
-//
-//     const var1 = funcion2();
-//
-//     debugger;
-//
-//     return var1 + " MI NOMBRE ES RODRIGO";
-// }
-//
-// const saludo = funcion1();
-//
-// console.log(saludo);
-
-/**
- * SET INTERVAL
- */
-
-// const interval = setInterval( () => {
-//     console.log("HOLA");
-// }, 1000);
-
-// let timeout = setTimeout( () => {
-//
-//     // clearInterval(interval);
-//
-//     console.log("HOLA");
-//
-// }, 2000);
-//
-// setTimeout( () => {
-//     clearTimeout(timeout);
-// }, 1000);
-
-/**
- * PROMESAS
- */
-
-// const numero = 5;
-//
-// const promesa = new Promise( (resolve, reject) => {
-//
-//     // Sincrónico
-//     // if(numero === 5) {
-//     //     resolve();
-//     // } else {
-//     //     reject();
-//     // }
-//
-//     // Asincrónico
-//     setTimeout( () => {
-//         if(numero === 5) {
-//             resolve();
-//         } else {
-//             reject();
-//         }
-//     }, 1000);
-// });
-//
-// promesa
-//     .then( () => {
-//         console.log("Se resolvió la promesa");
-//     })
-//     .catch( () => {
-//         console.log("Se rechazó la promesa");
-//     })
-//     .finally( () => {
-//         console.log("FINALIZÓ");
+// siguiente.addEventListener("click", () => {
+//     fetch(siguientePagina).then( (response) => {
+//         return response.json();
+//     }).then( (json) => {
+//         siguientePagina = json.info.next;
+//         renderizarPersonajes(json.results);
 //     });
-
-// EJEMPLO 2
-
-// const promesa = new Promise( (resolve, reject) => {
-//
-//     const productos = [
-//         {
-//             id: 1,
-//             nombre: "Papa",
-//         },
-//         {
-//             id: 2,
-//             nombre: "Tomates",
-//         },
-//         // ...
-//     ];
-//
-//     setTimeout( () => {
-//         const random = Math.round(Math.random() * 10);
-//
-//         if(random >= 5) {
-//             resolve(productos);
-//         } else {
-//             reject("Error al obtener los productos");
-//         }
-//
-//     }, 1000);
 // });
 //
-// promesa
-//     .then( (productosRecibidos) => {
-//         console.log("Productos: ");
-//         console.log(productosRecibidos);
-//     })
-//     .catch( (mensajeDeError) => {
-//         console.log("Error: " + mensajeDeError);
-//     })
-//     .finally( () => {
-//         console.log("Se terminaron de obtener los productos");
-//     })
-// ;
+// Forma 1
+// peticion.then( (response) => {
+//     const body = response.json();
 //
-// console.log("HOLA");
+//     body.then( (json) => {
+//         console.log(json);
+//     });
+// });
 //
-// for(let i = 0; i < 500; i++) {
-//     console.log(i);
-// }
+// Forma 2
+// peticion.then( (response) => {
+//     return response.json();
+// }).then( (json) => {
+//
+//     siguientePagina = json.info.next;
+//
+//     renderizarPersonajes(json.results);
+// });
 
+/**
+ * POST
+ */
+
+// fetch('https://jsonplaceholder.typicode.com/posts', {
+//     method: "POST",
+//     body: JSON.stringify({
+//         title: 'Titulo del post',
+//         body: 'Body del post',
+//         userId: 1,
+//     }),
+//     headers: {
+//         'Content-type': 'application/json; charset=UTF-8',
+//     },
+// }).then( (response) => {
+//     return response.json();
+// }).then( (json) => {
+//     console.log(json);
+// })
+
+// fetch('https://jsonplaceholder.typicode.com/posts/1', {
+//     method: "DELETE",
+// }).then( (response) => {
+//     return response.json();
+// }).then( (json) => {
+//     console.log(json);
+// })
+
+/**
+ * ASYNC-AWAIT
+ */
+
+// Funciones
+// function renderizarPersonajes(personajes) {
+//     console.log("Renderizar personajes");
+//
+//     const container = document.getElementById("container");
+//
+//     for(const personaje of personajes) {
+//         container.innerHTML += `
+//             <div class="personaje">
+//                 <h3>${personaje.name}</h3>
+//                 <h5>${personaje.species}</h5>
+//             </div>
+//         `;
+//     }
+// }
+//
+// async function ejecutarRequest() {
+//     // Sin async await
+//     // fetch("https://rickandmortyapi.com/api/character")
+//     //     .then( (response) => {
+//     //         return response.json();
+//     //     })
+//     //     .then( (json) => {
+//     //
+//     //         siguientePagina = json.info.next;
+//     //
+//     //         renderizarPersonajes(json.results);
+//     //     });
+//
+//     // Con async await
+//     const response = await fetch("https://rickandmortyapi.com/api/character");
+//     const json = await response.json();
+//
+//     siguientePagina = json.info.next;
+//     renderizarPersonajes(json.results);
+//
+//     // console.log("asd");
+// }
+//
+// // Inicio del programa
+// // let siguientePagina = "";
+// //
+// // const siguiente = document.getElementById("siguiente");
+// //
+// // siguiente.addEventListener("click", () => {
+// //     fetch(siguientePagina).then( (response) => {
+// //         return response.json();
+// //     }).then( (json) => {
+// //         siguientePagina = json.info.next;
+// //         renderizarPersonajes(json.results);
+// //     });
+// // });
+// //
+// ejecutarRequest();
+
+/**
+ * ARCHIVOS JSON
+ */
+
+fetch("/json/datos.json")
+    .then( (response) => {
+        return response.json();
+    })
+    .then( (json) => {
+        console.log(json);
+    })
